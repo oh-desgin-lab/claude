@@ -80,6 +80,18 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 .lp-main { display: block; }
 
+/* =========================================================
+   📐 FLUID SP TYPOGRAPHY (SP base styles below)
+   ─────────────────────────────────────────────
+   font-size: min(Xvw, Ypx) パターンを採用。
+   - 375px viewport ちょうどで Ypx (デザイン値) になる
+   - 375より小さい画面 → vw値で按分（縮小）
+   - 375より大きい画面 → Ypx で頭打ち（@mediaで上書きされるまで）
+   公式: X = (Y * 100 / 375)
+   例: 18px → min(4.8vw, 18px)
+   ────────────────────────────────────── */
+
+
 /* -------- Common: Section -------- */
 .lp-section {
   padding: 56px var(--lp-pad);
@@ -94,7 +106,7 @@ input, select, textarea { font: inherit; color: inherit; }
   gap: 16px;
 }
 .lp-section__title {
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 1.6;
@@ -104,7 +116,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-eyebrow {
   font-family: var(--lp-ff-en);
   font-weight: 600;
-  font-size: 11px;
+  font-size: min(2.933vw, 11px);
   letter-spacing: 0.12em;
   color: var(--lp-c-saxblue);
   display: inline-flex;
@@ -141,7 +153,7 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 16px 28px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.05em;
   width: 100%;
   max-width: 335px;
@@ -165,12 +177,12 @@ input, select, textarea { font: inherit; color: inherit; }
   color: var(--lp-c-orange);
   border: 2px solid var(--lp-c-orange);
 }
-.lp-btn--lg { padding: 20px 28px; font-size: 16px; max-width: none; }
+.lp-btn--lg { padding: 20px 28px; font-size: min(4.267vw, 16px); max-width: none; }
 .lp-btn__icon {
   display: inline-block;
   width: 16px; height: 16px;
 }
-.lp-btn__chev { font-size: 20px; line-height: 1; letter-spacing: 0.03em; }
+.lp-btn__chev { font-size: min(5.333vw, 20px); line-height: 1; letter-spacing: 0.03em; }
 
 /* -------- Common: Icon placeholder (画像差替え用エリア) --------
    差し替え方法: background-image / <img>挿入
@@ -229,7 +241,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-logo__jp {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   color: #2a2a2a;
   letter-spacing: 0.03em;
   white-space: nowrap;
@@ -244,7 +256,7 @@ input, select, textarea { font: inherit; color: inherit; }
   border-radius: 999px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   letter-spacing: 0.03em;
   box-shadow: 0 4px 10px 0 rgba(237, 89, 46, 0.3);
   white-space: nowrap;
@@ -310,7 +322,7 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 8px 16px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   letter-spacing: 0.03em;
   color: #16458c;
   box-shadow: 0 4px 12px 0 rgba(26, 173, 229, 0.15);
@@ -325,7 +337,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #2a2a2a;
 }
 .lp-hero__line {
-  font-size: 22px;
+  font-size: min(5.867vw, 22px);
   letter-spacing: 0.05em;
   line-height: 1.5;
 }
@@ -352,7 +364,7 @@ input, select, textarea { font: inherit; color: inherit; }
   z-index: 1;
   font-family: var(--lp-ff-jp);
   font-weight: 900;
-  font-size: 28px;
+  font-size: min(7.467vw, 28px);
   color: #1aaee5;
   letter-spacing: 0.05em;
 }
@@ -361,7 +373,7 @@ input, select, textarea { font: inherit; color: inherit; }
   z-index: 1;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 22px;
+  font-size: min(5.867vw, 22px);
   color: #333;
   letter-spacing: 0.05em;
 }
@@ -407,10 +419,10 @@ input, select, textarea { font: inherit; color: inherit; }
   align-items: baseline;
   gap: 1px;
 }
-.lp-feature__lbl { font-size: 13px; line-height: 1; }
-.lp-feature__sm  { font-size: 13px; line-height: 1.4; }
-.lp-feature__xs  { font-size: 11px; line-height: 1.4; }
-.lp-feature__md  { font-size: 16px; line-height: 1.4; }
+.lp-feature__lbl { font-size: min(3.467vw, 13px); line-height: 1; }
+.lp-feature__sm  { font-size: min(3.467vw, 13px); line-height: 1.4; }
+.lp-feature__xs  { font-size: min(2.933vw, 11px); line-height: 1.4; }
+.lp-feature__md  { font-size: min(4.267vw, 16px); line-height: 1.4; }
 .lp-feature__price {
   display: inline-flex;
   align-items: baseline;
@@ -418,15 +430,15 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-feature__num {
   font-family: var(--lp-ff-num);
   font-weight: 700;
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   line-height: 1;
   letter-spacing: -0.03em;
 }
 .lp-feature__num--m {
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   letter-spacing: 0.04em;
 }
-.lp-feature__yen { font-size: 11px; line-height: 1; }
+.lp-feature__yen { font-size: min(2.933vw, 11px); line-height: 1; }
 
 /* ── Hero CTA Button (Figma実値: gradient 117.47deg / drop-shadow 6px 9px #ccc) ── */
 .lp-btn--hero {
@@ -440,7 +452,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #fff;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.03em;
   filter: drop-shadow(0 6px 9px #ccc);
   text-decoration: none;
@@ -476,7 +488,7 @@ input, select, textarea { font: inherit; color: inherit; }
   text-align: center;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 22px;
+  font-size: min(5.867vw, 22px);
   line-height: 1.6;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -519,7 +531,7 @@ input, select, textarea { font: inherit; color: inherit; }
   flex: 1;
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 2.1;
   letter-spacing: 0.03em;
   color: #2a2a2a;
@@ -549,7 +561,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-empathy__heading {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   color: #1aaee5;
   margin: 0;
   text-align: center;
@@ -568,7 +580,7 @@ input, select, textarea { font: inherit; color: inherit; }
   padding-left: 14px;
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: #333;
@@ -586,7 +598,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-empathy__sub {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: #333;
@@ -645,7 +657,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-method__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 24px;
+  font-size: min(6.4vw, 24px);
   letter-spacing: 0.05em;
   line-height: 1.6;
   color: #2a2a2a;
@@ -683,7 +695,7 @@ input, select, textarea { font: inherit; color: inherit; }
   text-align: center;
   font-family: "DM Sans", var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.03em;
   color: #333;
   line-height: 2;
@@ -717,12 +729,12 @@ input, select, textarea { font: inherit; color: inherit; }
   justify-content: center;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
 }
 .lp-method__heading {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   letter-spacing: 0.05em;
   color: #2a2a2a;
   margin: 0;
@@ -730,7 +742,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-method__body {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -752,7 +764,7 @@ input, select, textarea { font: inherit; color: inherit; }
   gap: 10px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 20px;
+  font-size: min(5.333vw, 20px);
   letter-spacing: 0.05em;
   color: #2a2a2a;
   margin: 0;
@@ -778,7 +790,7 @@ input, select, textarea { font: inherit; color: inherit; }
   height: 30px;
   background: red;
   color: #fff;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   font-weight: 700;
   border-radius: 6px;
 }
@@ -841,7 +853,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-reasons__txt {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 24px;
+  font-size: min(6.4vw, 24px);
   letter-spacing: 0.05em;
   color: #333;
   line-height: 1;
@@ -850,7 +862,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-reasons__big {
   font-family: "Oswald", var(--lp-ff-num);
   font-weight: 700;
-  font-size: 48px;
+  font-size: min(12.8vw, 48px);
   line-height: 1;
   background: linear-gradient(180deg, #1aaee5 0%, #98e7e7 100%);
   -webkit-background-clip: text;
@@ -886,7 +898,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-reason__num {
   font-family: "Roboto", var(--lp-ff-num);
   font-weight: 900;
-  font-size: 40px;
+  font-size: min(10.667vw, 40px);
   line-height: 1;
   letter-spacing: -0.02em;
   flex-shrink: 0;
@@ -915,7 +927,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-reason__body h3 {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   letter-spacing: 0.05em;
   color: #2a2a2a;
   margin: 0;
@@ -923,7 +935,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-reason__body p {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -978,7 +990,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-merits__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 24px;
+  font-size: min(6.4vw, 24px);
   line-height: 1.6;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -998,7 +1010,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-tab {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.05em;
   padding: 8px 18px;
   border-radius: 999px;
@@ -1056,7 +1068,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-merits__copytitle {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   line-height: 1.6;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -1065,7 +1077,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-merits__body {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1133,11 +1145,11 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #1aaee5;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.03em;
 }
 .lp-rijikai__star {
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   letter-spacing: 0.03em;
 }
 
@@ -1145,7 +1157,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-rijikai__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   line-height: 1.5;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -1166,7 +1178,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-rijikai__lead {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1185,7 +1197,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #fff;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   letter-spacing: 0.03em;
   filter: drop-shadow(0 5px 8px rgba(204, 204, 204, 0.45));
   text-decoration: none;
@@ -1276,7 +1288,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-cases__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 24px;
+  font-size: min(6.4vw, 24px);
   letter-spacing: 0.05em;
   color: #2a2a2a;
   margin: 0;
@@ -1322,7 +1334,7 @@ input, select, textarea { font: inherit; color: inherit; }
   border-radius: 999px;
   font-family: "Roboto", var(--lp-ff-num);
   font-weight: 900;
-  font-size: 20px;
+  font-size: min(5.333vw, 20px);
   letter-spacing: 0.03em;
   color: #fff;
 }
@@ -1363,7 +1375,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #6b6b6b;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 11px;
+  font-size: min(2.933vw, 11px);
   letter-spacing: 0.03em;
   padding: 4px 10px;
   border-radius: 4px;
@@ -1375,7 +1387,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-case__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   line-height: 1.6;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -1384,7 +1396,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-case__desc {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1406,7 +1418,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #fff;
   font-family: var(--lp-ff-jp);
   font-weight: 900;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   letter-spacing: 0.04em;
   padding: 3px 8px;
   border-radius: 4px;
@@ -1416,7 +1428,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-case__pnum {
   font-family: "Roboto", var(--lp-ff-num);
   font-weight: 900;
-  font-size: 30px;
+  font-size: min(8.0vw, 30px);
   letter-spacing: 0;
   color: #ee5a2e;
   line-height: 1;
@@ -1424,21 +1436,21 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-case__pyen {
   font-family: var(--lp-ff-jp);
   font-weight: 900;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   color: #ee5a2e;
   line-height: 1;
 }
 .lp-case__ptilde {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   color: #ee5a2e;
   line-height: 1;
 }
 .lp-case__ptax {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   color: #333;
   line-height: 1;
   margin-left: 2px;
@@ -1490,16 +1502,16 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #fff;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   letter-spacing: 0.03em;
   margin: 0;
 }
-.lp-health__warn { font-size: 14px; }
+.lp-health__warn { font-size: min(3.733vw, 14px); }
 
 .lp-health__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 24px;
+  font-size: min(6.4vw, 24px);
   letter-spacing: 0.05em;
   color: #2a2a2a;
   margin: 0;
@@ -1538,7 +1550,7 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 14px 16px;
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 15px;
+  font-size: min(4.0vw, 15px);
   line-height: 1.6;
   letter-spacing: 0.03em;
   color: #2a2a2a;
@@ -1610,7 +1622,7 @@ input, select, textarea { font: inherit; color: inherit; }
   align-items: center;
   justify-content: center;
   color: #ee5a2e;
-  font-size: 28px;
+  font-size: min(7.467vw, 28px);
   font-weight: 900;
 }
 
@@ -1629,7 +1641,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-health__result h3 {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   letter-spacing: 0.05em;
   color: #ee5a2e;
   margin: 0;
@@ -1637,7 +1649,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-health__result p {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1678,7 +1690,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-finalcta__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   line-height: 1.5;
   letter-spacing: 0.05em;
   color: var(--lp-c-white);
@@ -1687,7 +1699,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-finalcta__lead {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 1.8;
   color: var(--lp-c-white);
   opacity: 0.95;
@@ -1717,14 +1729,14 @@ input, select, textarea { font: inherit; color: inherit; }
   gap: 6px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.03em;
   color: var(--lp-c-navy-deep);
 }
 .lp-finalcta__tel {
   font-family: var(--lp-ff-num);
   font-weight: 900;
-  font-size: 32px;
+  font-size: min(8.533vw, 32px);
   line-height: 1.2;
   color: var(--lp-c-navy);
   letter-spacing: 0;
@@ -1732,7 +1744,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-finalcta__hours {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   color: var(--lp-c-text-muted);
   letter-spacing: 0.03em;
 }
@@ -1770,7 +1782,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-form__title {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 26px;
+  font-size: min(6.933vw, 26px);
   line-height: 1.4;
   letter-spacing: 0.05em;
   color: #2a2a2a;
@@ -1780,7 +1792,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-form__lead {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   line-height: 2;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1814,7 +1826,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-field__label {
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   letter-spacing: 0.03em;
   color: #2a2a2a;
   line-height: 1.2;
@@ -1828,7 +1840,7 @@ input, select, textarea { font: inherit; color: inherit; }
   border-radius: 4px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   letter-spacing: 0.03em;
   line-height: 1.2;
 }
@@ -1853,7 +1865,7 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 0 18px;
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 15px;
+  font-size: min(4.0vw, 15px);
   letter-spacing: 0.03em;
   color: #2a2a2a;
 }
@@ -1897,7 +1909,7 @@ input, select, textarea { font: inherit; color: inherit; }
   align-items: center;
   justify-content: center;
   color: #1aaee5;
-  font-size: 16px;
+  font-size: min(4.267vw, 16px);
   font-weight: 700;
   pointer-events: none;
 }
@@ -1922,7 +1934,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-privacy__note {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 13px;
+  font-size: min(3.467vw, 13px);
   line-height: 1.7;
   letter-spacing: 0.03em;
   color: #6b6b6b;
@@ -1933,7 +1945,7 @@ input, select, textarea { font: inherit; color: inherit; }
   gap: 12px;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 14px;
+  font-size: min(3.733vw, 14px);
   letter-spacing: 0.03em;
   cursor: pointer;
 }
@@ -1975,7 +1987,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: #fff;
   font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 17px;
+  font-size: min(4.533vw, 17px);
   letter-spacing: 0.05em;
   box-shadow: 0 8px 20px 0 rgba(237, 89, 46, 0.35);
   border: 0;
@@ -1988,7 +2000,7 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-form__note {
   font-family: var(--lp-ff-jp);
   font-weight: 500;
-  font-size: 12px;
+  font-size: min(3.2vw, 12px);
   letter-spacing: 0.03em;
   color: #9a9a9a;
 }
@@ -2004,7 +2016,7 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 .lp-footer__copy {
   font-family: var(--lp-ff-en);
-  font-size: 11px;
+  font-size: min(2.933vw, 11px);
   font-weight: 500;
   letter-spacing: 0.05em;
   opacity: 0.7;
@@ -2015,8 +2027,8 @@ input, select, textarea { font: inherit; color: inherit; }
    Larger SP / Phablet (above 414px)
    ========================================================= */
 @media (min-width: 414px) {
-  .lp-hero__title { font-size: 22px; }
-  .lp-hero__brand { font-size: 28px; }
+  .lp-hero__title { font-size: min(5.867vw, 22px); }
+  .lp-hero__brand { font-size: min(7.467vw, 28px); }
 }
 
 /* =========================================================
@@ -2039,7 +2051,7 @@ input, select, textarea { font: inherit; color: inherit; }
   background: var(--lp-c-white);
   color: var(--lp-c-orange);
   font-family: var(--lp-ff-jp);
-  font-size: 15px;
+  font-size: min(4.0vw, 15px);
   font-weight: 700;
   letter-spacing: 0.05em;
   padding: 6px 22px;
@@ -2070,7 +2082,7 @@ input, select, textarea { font: inherit; color: inherit; }
   width: 100%;
   padding: 20px 16px;
   font-family: var(--lp-ff-jp);
-  font-size: 18px;
+  font-size: min(4.8vw, 18px);
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--lp-c-white);
