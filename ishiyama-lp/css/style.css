@@ -161,57 +161,50 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 0 12px 0 16px;
 }
 .lp-logo {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
 }
 .lp-logo__mark {
-  width: 32px; height: 32px;
-  background: var(--lp-c-saxblue);
-  border-radius: 8px;
+  width: 40px; height: 40px;
+  background: var(--lp-c-navy-deep);
+  border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--lp-c-white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-.lp-logo__door {
-  width: 16px; height: 22px;
-  background: var(--lp-c-white);
-  border-radius: 2px;
+.lp-logo__face {
+  font-size: 24px;
+  line-height: 1;
+  filter: saturate(1.1);
 }
+/* legacy door icon (PC was using square logo) */
+.lp-logo__door { display: none; }
 .lp-logo__text { display: flex; flex-direction: column; line-height: 1.1; }
 .lp-logo__en {
   font-family: var(--lp-ff-en);
-  font-size: 9px; font-weight: 700;
+  font-size: 10px; font-weight: 700;
   color: var(--lp-c-text-sub);
   letter-spacing: 0.18em;
 }
 .lp-logo__jp {
-  font-size: 13px; font-weight: 700;
+  font-size: 14px; font-weight: 700;
   color: var(--lp-c-text);
+  letter-spacing: 0.03em;
 }
 .lp-header__right { display: flex; align-items: center; gap: 8px; }
 .lp-header__dlbtn {
-  display: inline-flex; align-items: center; gap: 5px;
+  display: inline-flex; align-items: center; gap: 6px;
   background: var(--lp-c-orange);
   color: var(--lp-c-white);
-  padding: 9px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
-  font-size: 12px; font-weight: 700;
+  font-size: 13px; font-weight: 700;
   letter-spacing: 0.03em;
   box-shadow: 0 3px 8px rgba(238, 90, 46, 0.3);
+  white-space: nowrap;
 }
-.lp-header__dlicon { font-size: 13px; }
-.lp-hamburger {
-  width: 40px; height: 40px;
-  border-radius: 8px;
-  background: var(--lp-c-bg-sub);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 4px;
-}
-.lp-hamburger span {
-  display: block;
-  width: 18px; height: 2px;
-  border-radius: 1px;
-  background: var(--lp-c-text);
-}
+.lp-header__dlicon { font-size: 14px; }
 
 /* =========================================================
    HERO (FV)
@@ -1357,6 +1350,73 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
+   SP FIXED BOTTOM CTA (SP/Tablet only)
+   黄色吹き出し「今すぐタップで確認！」+ オレンジ追従ボタン
+   ========================================================= */
+.lp-fixedcta {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.lp-fixedcta__bubble {
+  background: var(--lp-c-accent);
+  color: var(--lp-c-orange-d);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 18px;
+  border-radius: 14px;
+  position: relative;
+  margin: 0 auto -6px;
+  z-index: 2;
+  pointer-events: auto;
+}
+.lp-fixedcta__bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--lp-c-accent);
+}
+.lp-fixedcta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 18px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--lp-c-white);
+  background: linear-gradient(90deg, #F87038 0%, #EE5A2E 100%);
+  box-shadow: 0 -4px 16px rgba(238, 90, 46, 0.35);
+  pointer-events: auto;
+}
+.lp-fixedcta__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Reserve space for the fixed CTA bar on SP / tablet */
+@media (max-width: 1023px) {
+  .lp-body { padding-bottom: 84px; }
+}
+/* Hide fixed CTA on PC (use PC floating CTA instead) */
+@media (min-width: 1024px) {
+  .lp-fixedcta { display: none; }
+}
+
+/* =========================================================
    TABLET (≥ 768px) – stretch SP for phablet/tablet
    ========================================================= */
 @media (min-width: 768px) {
@@ -1400,9 +1460,8 @@ input, select, textarea { font: inherit; color: inherit; }
     margin: 0 auto;
     padding: 0 24px 0 24px;
   }
-  .lp-logo__mark { width: 40px; height: 40px; border-radius: 10px; }
-  .lp-logo__door { width: 20px; height: 28px; border-radius: 3px; }
-  .lp-logo__en { font-size: 11px; letter-spacing: 0.2em; }
+  .lp-logo__mark { width: 44px; height: 44px; border-radius: 50%; }
+  .lp-logo__face { font-size: 26px; }
   .lp-logo__jp { font-size: 16px; }
   .lp-header__right { gap: 24px; }
   .lp-header__dlbtn { padding: 13px 24px; font-size: 14px; gap: 6px; }
