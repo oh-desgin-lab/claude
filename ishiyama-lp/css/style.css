@@ -1012,11 +1012,21 @@ input, select, textarea { font: inherit; color: inherit; }
   box-shadow: 0 10px 30px 0 rgba(26, 69, 140, 0.08);
   width: 100%;
   max-width: 1000px;
-  display: flex;
+  position: relative;
+}
+/* Pane切替: is-active のみ表示 */
+.lp-merits__pane {
+  display: none;
   flex-direction: column;
   gap: 24px;
   align-items: center;
 }
+.lp-merits__pane.is-active { display: flex; }
+
+/* Tab interaction */
+.lp-tab { cursor: pointer; }
+.lp-pagination li { cursor: pointer; }
+
 .lp-merits__visual {
   width: 100%;
   aspect-ratio: 291 / 206;
@@ -1495,7 +1505,7 @@ input, select, textarea { font: inherit; color: inherit; }
   max-width: 640px;
 }
 
-/* Checklist */
+/* Checklist (native checkbox + label) */
 .lp-checklist {
   background: #e6f4fc;
   border-radius: 20px;
@@ -1503,25 +1513,39 @@ input, select, textarea { font: inherit; color: inherit; }
   list-style: none;
   margin: 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
+.lp-checklist li {
+  border-bottom: 1px solid #cfe3ef;
+}
+.lp-checklist li:last-child { border-bottom: 0; }
+
 .lp-checklist__item {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
-  border-bottom: 1px solid #cfe3ef;
   font-family: var(--lp-ff-jp);
   font-weight: 500;
   font-size: 15px;
   line-height: 1.6;
   letter-spacing: 0.03em;
   color: #2a2a2a;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease;
 }
-.lp-checklist__item:last-child { border-bottom: 0; }
+.lp-checklist__item:hover { background: rgba(255,255,255,0.4); border-radius: 6px; }
 
+/* Visually hide native input but keep accessible */
+.lp-checklist__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom box (Figma実値: 24x24 / border 2px #1aaee5 / radius 6) */
 .lp-checklist__box {
   width: 24px;
   height: 24px;
@@ -1532,15 +1556,27 @@ input, select, textarea { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-.lp-checklist__check {
+  transition: background 0.15s ease, border-color 0.15s ease;
   color: #1aaee5;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1;
 }
-.lp-checklist__box.is-checked .lp-checklist__check { display: inline-block; }
-.lp-checklist__box:not(.is-checked) .lp-checklist__check { display: none; }
+/* SVG check icon (Figma実値: 17.5x11.5 at 6,4.5 inside 24x24 box) */
+.lp-checklist__svg {
+  width: 16px;
+  height: 11px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Checked state */
+.lp-checklist__input:checked + .lp-checklist__box .lp-checklist__svg {
+  opacity: 1;
+}
+
+/* Focus ring for keyboard a11y */
+.lp-checklist__input:focus-visible + .lp-checklist__box {
+  outline: 2px solid #1aaee5;
+  outline-offset: 2px;
+}
 
 /* Arrow image placeholder (Figma: ▼ 149x50) */
 .lp-health__arrow {

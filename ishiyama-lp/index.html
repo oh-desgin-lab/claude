@@ -228,30 +228,96 @@
     </header>
 
     <div class="lp-merits__tabs" role="tablist">
-      <button class="lp-tab is-active" role="tab" aria-selected="true">資産価値向上</button>
-      <button class="lp-tab" role="tab" aria-selected="false">耐震</button>
-      <button class="lp-tab" role="tab" aria-selected="false">防犯</button>
-      <button class="lp-tab" role="tab" aria-selected="false">利便性</button>
-      <button class="lp-tab" role="tab" aria-selected="false">資材高騰</button>
+      <button class="lp-tab is-active" role="tab" aria-selected="true" data-tab="t1">資産価値向上</button>
+      <button class="lp-tab" role="tab" aria-selected="false" data-tab="t2">耐震</button>
+      <button class="lp-tab" role="tab" aria-selected="false" data-tab="t3">防犯</button>
+      <button class="lp-tab" role="tab" aria-selected="false" data-tab="t4">利便性</button>
+      <button class="lp-tab" role="tab" aria-selected="false" data-tab="t5">資材高騰</button>
     </div>
 
     <div class="lp-merits__panel">
-      <!-- 画像差替えエリア (Figma: Frame 291x206) -->
-      <div class="lp-merits__visual" aria-hidden="true"></div>
-      <div class="lp-merits__copy">
-        <h3 class="lp-merits__copytitle">
-          毎日の「重い・うるさい」を<br>
-          今日で終わりに。<br>
-          <span class="lp-merits__hl">隙間風を防ぎ、断熱性も向上</span>
-        </h3>
-        <p class="lp-merits__body">
-          開閉がスムーズになり、騒音も軽減。高断熱ドアで冷暖房効率が上がり、光熱費の削減にも貢献します。毎日の快適さが違います。
-        </p>
+      <!-- t1: 資産価値向上 -->
+      <div class="lp-merits__pane is-active" data-pane="t1" role="tabpanel">
+        <div class="lp-merits__visual" aria-hidden="true"></div>
+        <div class="lp-merits__copy">
+          <h3 class="lp-merits__copytitle">
+            毎日の「重い・うるさい」を<br>
+            今日で終わりに。<br>
+            <span class="lp-merits__hl">隙間風を防ぎ、断熱性も向上</span>
+          </h3>
+          <p class="lp-merits__body">
+            開閉がスムーズになり、騒音も軽減。高断熱ドアで冷暖房効率が上がり、光熱費の削減にも貢献します。毎日の快適さが違います。
+          </p>
+        </div>
+      </div>
+
+      <!-- t2: 耐震 -->
+      <div class="lp-merits__pane" data-pane="t2" role="tabpanel">
+        <div class="lp-merits__visual" aria-hidden="true"></div>
+        <div class="lp-merits__copy">
+          <h3 class="lp-merits__copytitle">
+            地震時の「閉じ込め」を<br>
+            未然に防ぐ。<br>
+            <span class="lp-merits__hl">耐震フレームで安心の住まいに</span>
+          </h3>
+          <p class="lp-merits__body">
+            ※耐震に関するコピーをこちらに入れてください。テキストは仮の内容です。
+          </p>
+        </div>
+      </div>
+
+      <!-- t3: 防犯 -->
+      <div class="lp-merits__pane" data-pane="t3" role="tabpanel">
+        <div class="lp-merits__visual" aria-hidden="true"></div>
+        <div class="lp-merits__copy">
+          <h3 class="lp-merits__copytitle">
+            ピッキング・サムターン回しを<br>
+            徹底対策。<br>
+            <span class="lp-merits__hl">最新ロックで防犯性能アップ</span>
+          </h3>
+          <p class="lp-merits__body">
+            ※防犯に関するコピーをこちらに入れてください。テキストは仮の内容です。
+          </p>
+        </div>
+      </div>
+
+      <!-- t4: 利便性 -->
+      <div class="lp-merits__pane" data-pane="t4" role="tabpanel">
+        <div class="lp-merits__visual" aria-hidden="true"></div>
+        <div class="lp-merits__copy">
+          <h3 class="lp-merits__copytitle">
+            スマートキー・電動アシストで<br>
+            毎日の出入りをもっと快適に。<br>
+            <span class="lp-merits__hl">暮らしの利便性を向上</span>
+          </h3>
+          <p class="lp-merits__body">
+            ※利便性に関するコピーをこちらに入れてください。テキストは仮の内容です。
+          </p>
+        </div>
+      </div>
+
+      <!-- t5: 資材高騰 -->
+      <div class="lp-merits__pane" data-pane="t5" role="tabpanel">
+        <div class="lp-merits__visual" aria-hidden="true"></div>
+        <div class="lp-merits__copy">
+          <h3 class="lp-merits__copytitle">
+            資材価格高騰の今だからこそ、<br>
+            カバー工法でコストを抑制。<br>
+            <span class="lp-merits__hl">今が最もお得なタイミング</span>
+          </h3>
+          <p class="lp-merits__body">
+            ※資材高騰に関するコピーをこちらに入れてください。テキストは仮の内容です。
+          </p>
+        </div>
       </div>
     </div>
 
     <ul class="lp-pagination" aria-hidden="true">
-      <li class="is-active"></li><li></li><li></li><li></li><li></li>
+      <li class="is-active" data-pag="t1"></li>
+      <li data-pag="t2"></li>
+      <li data-pag="t3"></li>
+      <li data-pag="t4"></li>
+      <li data-pag="t5"></li>
     </ul>
   </section>
 
@@ -349,35 +415,82 @@
 
     <div class="lp-health__inner">
       <ul class="lp-checklist">
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box is-checked" aria-hidden="true">
-            <span class="lp-checklist__check">✓</span>
-          </span>
-          ドアが重く、開閉に力が必要になった
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input" checked>
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">ドアが重く、開閉に力が必要になった</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          鍵が回りにくい、または抜き差しが引っかかる
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">鍵が回りにくい、または抜き差しが引っかかる</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          冬場、玄関から冷たい隙間風が入ってくる
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">冬場、玄関から冷たい隙間風が入ってくる</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          外の騒音が以前より気になるようになった
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">外の騒音が以前より気になるようになった</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          ドア表面の色褪せ、傷、サビが目立ってきた
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">ドア表面の色褪せ、傷、サビが目立ってきた</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          「古い鍵」のままで、防犯面（ピッキング等）が不安
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">「古い鍵」のままで、防犯面（ピッキング等）が不安</span>
+          </label>
         </li>
-        <li class="lp-checklist__item">
-          <span class="lp-checklist__box" aria-hidden="true"></span>
-          地震の際に、ドアが歪んで閉じ込められないか心配
+        <li>
+          <label class="lp-checklist__item">
+            <input type="checkbox" class="lp-checklist__input">
+            <span class="lp-checklist__box" aria-hidden="true">
+              <svg class="lp-checklist__svg" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7.5 L7.5 12.5 L18 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <span class="lp-checklist__text">地震の際に、ドアが歪んで閉じ込められないか心配</span>
+          </label>
         </li>
       </ul>
 
@@ -559,6 +672,49 @@
   <span class="lp-icon lp-floating-cta__icon" data-icon="mail" aria-hidden="true"></span>
   CTAフォーム
 </a>
+
+<!-- ============ JS (Merits tabs / Healthcheck checkbox is native) ============ -->
+<script>
+(function () {
+  'use strict';
+
+  // ─── 04 MERITS: Tab switching ───────────────────────────
+  var tabs   = document.querySelectorAll('.lp-tab');
+  var panes  = document.querySelectorAll('.lp-merits__pane');
+  var pagDots = document.querySelectorAll('.lp-pagination li');
+
+  function activate(targetId) {
+    tabs.forEach(function (t) {
+      var on = t.dataset.tab === targetId;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panes.forEach(function (p) {
+      p.classList.toggle('is-active', p.dataset.pane === targetId);
+    });
+    pagDots.forEach(function (d) {
+      d.classList.toggle('is-active', d.dataset.pag === targetId);
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      activate(tab.dataset.tab);
+    });
+  });
+
+  // Pagination dot click (PC側でドットからもタブ切替できる)
+  pagDots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      if (dot.dataset.pag) activate(dot.dataset.pag);
+    });
+  });
+
+  // ─── 07 HEALTHCHECK: チェックボックスはネイティブ動作 ───
+  // <input type="checkbox"> + <label> で実装済み (JS不要)
+
+})();
+</script>
 
 </body>
 </html>
