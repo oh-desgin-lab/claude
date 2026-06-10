@@ -1082,63 +1082,159 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   05 RIJIKAI
-   ========================================================= */
+   05 RIJIKAI — Figma実値 (1406:3383)
+   ─────────────────────────────────────────────
+   - section bg #fff / padding 90px 112px
+   - inner 1216w / 2-col gap 64
+   - left 560w: ribbon + heading 42px (gradient text 無料プレゼント) +
+                lead + gradient CTA
+   - right 552w x 380h: bg #e6f4fc / radius 20 / 2 docs 160x220
+   ────────────────────────────────────── */
 .lp-rijikai {
-  background: var(--lp-c-white);
-  text-align: center;
+  background: #fff;
+  padding: 56px 20px;
 }
+.lp-rijikai__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+}
+.lp-rijikai__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Outline ribbon ('そのまま使える！') */
 .lp-rijikai__ribbon {
-  display: inline-block;
-  background: var(--lp-c-accent);
-  color: var(--lp-c-orange-d);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 20px;
+  border: 1px solid #1aaee5;
   border-radius: 999px;
+  color: #1aaee5;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 14px;
   letter-spacing: 0.03em;
 }
-.lp-rijikai__title {
-  margin-top: 16px;
+.lp-rijikai__star {
+  font-size: 13px;
+  letter-spacing: 0.03em;
 }
+
+/* Heading: 42px Bold with gradient text on '無料プレゼント！' */
+.lp-rijikai__title {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lp-rijikai__hl {
+  background: linear-gradient(180deg, #1aaee5 0%, #98e7e7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Lead text */
+.lp-rijikai__lead {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* CTA button (Figma実値: linear-gradient 116.15deg + drop-shadow) */
+.lp-btn--rijikai {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  background: linear-gradient(116.15deg, #ee5a2e 9.37%, #ffc847 93.27%);
+  color: #fff;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  filter: drop-shadow(0 5px 8px rgba(204, 204, 204, 0.45));
+  text-decoration: none;
+  max-width: 335px;
+  width: 100%;
+}
+.lp-btn--rijikai .lp-icon { width: 18px; height: 18px; }
+
+/* ── Right side: 2 doc visual ───────────────── */
 .lp-rijikai__visual {
-  margin: 20px auto 0;
-  background: var(--lp-c-bg-blue);
-  border-radius: var(--lp-radius);
-  padding: 24px 20px;
+  background: #e6f4fc;
+  border-radius: 20px;
+  width: 100%;
+  height: 280px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  gap: 20px;
 }
 .lp-rijikai__doc {
-  width: 110px; height: 150px;
-  background: var(--lp-c-white);
-  border: 1px solid var(--lp-c-border);
+  width: 130px;
+  height: 200px;
+  background: #fff;
+  border: 1px solid #cfe3ef;
   border-radius: 8px;
-  box-shadow: 4px 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 6px 8px 18px 0 rgba(0, 0, 0, 0.1);
   position: relative;
+  flex-shrink: 0;
 }
-.lp-rijikai__doc::before,
+/* Top accent bar */
+.lp-rijikai__doc::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 23px;
+  width: 60px;
+  height: 8px;
+  border-radius: 2px;
+}
+.lp-rijikai__doc--blue::before   { background: #1aaee5; }
+.lp-rijikai__doc--orange::before { background: #ee5a2e; }
+/* 7 lines below (using box-shadow stack on ::after) */
 .lp-rijikai__doc::after {
   content: "";
   position: absolute;
-  left: 15px; right: 15px;
+  left: 19px;
+  top: 39px;
+  width: 90px;
   height: 3px;
-  background: var(--lp-c-border);
+  background: #cfe3ef;
   border-radius: 2px;
+  box-shadow:
+    0 16px 0 #cfe3ef,
+    0 32px 0 #cfe3ef,
+    0 48px 0 #cfe3ef,
+    0 64px 0 #cfe3ef,
+    0 80px 0 #cfe3ef,
+    0 96px 0 #cfe3ef;
 }
-.lp-rijikai__doc::before { top: 15px; height: 6px; background: var(--lp-c-saxblue); width: 60px; }
-.lp-rijikai__doc:nth-child(2)::before { background: var(--lp-c-orange); }
-.lp-rijikai__doc::after { top: 30px; box-shadow: 0 14px 0 var(--lp-c-border), 0 28px 0 var(--lp-c-border), 0 42px 0 var(--lp-c-border), 0 56px 0 var(--lp-c-border); }
-.lp-rijikai__lead {
-  margin-top: 16px;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 2;
-  color: var(--lp-c-text-sub);
-  letter-spacing: 0.03em;
-}
-.lp-rijikai .lp-btn { margin-top: 20px; }
 
 /* =========================================================
    06 CASES
@@ -2186,48 +2282,46 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-merits__copytitle { font-size: 26px; letter-spacing: 0.05em; }
   .lp-merits__body { font-size: 15px; letter-spacing: 0.03em; }
 
-  /* ----- 05 RIJIKAI ----- */
-  .lp-rijikai {
-    padding: 96px 112px;
-  }
+  /* ----- 05 RIJIKAI — Figma実値 (PC 1440) ----- */
+  .lp-rijikai { padding: 90px 112px; }
   .lp-rijikai__inner {
-    max-width: 1216px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 560px 1fr;
-    gap: 64px;
+    flex-direction: row;
     align-items: center;
-    text-align: left;
+    gap: 64px;
   }
-  /* Wrap rijikai content via stylistic grouping */
-  .lp-rijikai > * { grid-column: 1; }
+  .lp-rijikai__copy {
+    width: 560px;
+    flex-shrink: 0;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+  .lp-rijikai__title {
+    font-size: 42px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .lp-rijikai__lead {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+  }
+  .lp-btn--rijikai {
+    width: auto;
+    max-width: none;
+    padding: 18px 30px;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
   .lp-rijikai__visual {
-    grid-column: 2; grid-row: 1 / span 5;
-    margin: 0;
-    padding: 40px;
-    background: var(--lp-c-bg-blue);
-    aspect-ratio: 552 / 380;
+    width: 552px;
+    height: 380px;
+    flex-shrink: 0;
   }
   .lp-rijikai__doc { width: 160px; height: 220px; }
-  .lp-rijikai__title { font-size: 38px; }
-  .lp-rijikai__lead { font-size: 15px; max-width: 560px; }
-  .lp-rijikai .lp-btn { margin-top: 24px; max-width: 320px; }
-
-  /* When supporting browsers that don't grid (fallback to flow) */
-  @supports (display: grid) {
-    .lp-rijikai {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
-    .lp-rijikai__ribbon,
-    .lp-rijikai__title,
-    .lp-rijikai__lead,
-    .lp-rijikai > .lp-btn,
-    .lp-rijikai__visual {
-      align-self: start;
-    }
-  }
+  .lp-rijikai__doc::before { width: 80px; }
+  .lp-rijikai__doc::after { width: 120px; }
 
   /* ----- 06 CASES ----- */
   .lp-cases__list {
@@ -2611,26 +2705,33 @@ input, select, textarea { font: inherit; color: inherit; }
     </ul>
   </section>
 
-  <!-- ============ 05 RIJIKAI ============ -->
-  <section class="lp-section lp-rijikai" id="rijikai">
-    <p class="lp-rijikai__ribbon">★ そのまま使える！</p>
-    <h2 class="lp-section__title lp-rijikai__title">
-      理事会向け説明資料を<br>無料プレゼント！
-    </h2>
+  <!-- ============ 05 RIJIKAI — Figma実値 (1406:3383) ============ -->
+  <section class="lp-rijikai" id="rijikai">
+    <div class="lp-rijikai__inner">
+      <div class="lp-rijikai__copy">
+        <span class="lp-rijikai__ribbon">
+          <span class="lp-rijikai__star" aria-hidden="true">★</span>
+          そのまま使える！
+        </span>
+        <h2 class="lp-rijikai__title">
+          <span>理事会向け説明資料を</span>
+          <span class="lp-rijikai__hl">無料プレゼント！</span>
+        </h2>
+        <p class="lp-rijikai__lead">
+          面倒な資料作りは不要！<br>
+          改修工事の進め方から「反対意見への回答集」まで全てセットにしました。
+        </p>
+        <a href="#contact" class="lp-btn lp-btn--rijikai">
+          <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
+          <span>無料ダウンロードはこちら</span>
+        </a>
+      </div>
 
-    <div class="lp-rijikai__visual" aria-hidden="true">
-      <span class="lp-rijikai__doc"></span>
-      <span class="lp-rijikai__doc"></span>
+      <div class="lp-rijikai__visual" aria-hidden="true">
+        <span class="lp-rijikai__doc lp-rijikai__doc--blue"></span>
+        <span class="lp-rijikai__doc lp-rijikai__doc--orange"></span>
+      </div>
     </div>
-
-    <p class="lp-rijikai__lead">
-      面倒な資料作りは不要！改修工事の進め方から「反対意見への回答集」まで全てセットにしました。
-    </p>
-
-    <a href="#contact" class="lp-btn lp-btn--cta">
-      <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
-      <span>無料ダウンロードはこちら</span>
-    </a>
   </section>
 
   <!-- ============ 06 CASES ============ -->
