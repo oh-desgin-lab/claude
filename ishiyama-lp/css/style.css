@@ -1423,120 +1423,178 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   07 HEALTH CHECK
-   ========================================================= */
-.lp-health { background: var(--lp-c-white); text-align: center; }
+   07 HEALTH CHECK — Figma実値 (1406:3469)
+   ─────────────────────────────────────────────
+   - section bg #fff / padding 90px 112px / gap 32
+   - ribbon: bg #ffa12d (orange) / white text / padding 8 18 / radius 999
+     ⚠ 14px / 1つでも当てはまったら注意！？ 13px Bold tracking 0.39
+   - heading: '玄関ドアの' 36px Bold #2a2a2a + '健康診断' INLINE #1aaee5
+   - checklist 640w:
+     - bg #e6f4fc / radius 20 / padding 24 40
+     - 7 items / gap 6 / each: 50h padding 14 16
+     - border-bottom 1px #cfe3ef (last hidden)
+     - checkbox 24x24 / border 2px #1aaee5 / radius 6
+     - first item CHECKED (with ✓)
+     - text 20px Medium #2a2a2a tracking 0.6 line-height 1.6
+   - arrow image 149x50
+   - result card 640w:
+     - bg #fff / border 2px #ee5a2e / radius 16 / padding 28 32
+     - '1つでも当てはまった方は…' 20px Bold #ee5a2e tracking 0.6
+     - body 14px Medium #6b6b6b tracking 0.42 line-height 2 / centered
+   ────────────────────────────────────── */
+.lp-health {
+  background: #fff;
+  padding: 56px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.lp-health__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Warning ribbon - orange filled */
 .lp-health__ribbon {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--lp-c-accent);
-  color: var(--lp-c-orange-d);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
+  background: #ffa12d;
+  color: #fff;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 13px;
   letter-spacing: 0.03em;
+  margin: 0;
 }
+.lp-health__warn { font-size: 14px; }
+
 .lp-health__title {
-  display: inline-flex;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
+  text-align: center;
+}
+.lp-health__hl { color: #1aaee5; }
+
+/* Inner column */
+.lp-health__inner {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-top: 16px;
+  gap: 20px;
+  width: 100%;
+  max-width: 640px;
 }
 
+/* Checklist */
 .lp-checklist {
-  margin-top: 24px;
-  background: var(--lp-c-bg-blue);
-  border-radius: var(--lp-radius-l);
-  padding: 8px 0;
-  text-align: left;
+  background: #e6f4fc;
+  border-radius: 20px;
+  padding: 16px 20px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .lp-checklist__item {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px;
-  font-size: 15px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #cfe3ef;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  line-height: 1.5;
-  color: var(--lp-c-text);
+  font-size: 15px;
+  line-height: 1.6;
   letter-spacing: 0.03em;
-  border-bottom: 1px solid rgba(207, 227, 239, 0.6);
+  color: #2a2a2a;
 }
 .lp-checklist__item:last-child { border-bottom: 0; }
+
 .lp-checklist__box {
-  width: 22px; height: 22px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-  background: var(--lp-c-white);
-  border: 2px solid var(--lp-c-saxblue);
+  background: #fff;
+  border: 2px solid #1aaee5;
   border-radius: 6px;
   display: inline-flex;
-  align-items: center; justify-content: center;
-}
-.lp-checklist__box.is-checked {
-  background: var(--lp-c-orange);
-  border-color: var(--lp-c-orange);
-  color: var(--lp-c-white);
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.lp-flow-guide {
-  margin: 24px auto 0;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
 }
-.lp-flow-guide__chev {
-  color: var(--lp-c-orange);
-  font-weight: 900;
+.lp-checklist__check {
+  color: #1aaee5;
+  font-weight: 700;
+  font-size: 16px;
   line-height: 1;
 }
-.lp-flow-guide__chev--sm { font-size: 12px; opacity: 0.25; }
-.lp-flow-guide__chev--md { font-size: 16px; opacity: 0.5; }
-.lp-flow-guide__chev--lg { font-size: 20px; opacity: 0.85; }
-.lp-flow-guide__arrow {
-  margin-top: 6px;
-  width: 56px; height: 56px;
-  background: var(--lp-c-orange);
-  color: var(--lp-c-white);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px;
-  font-weight: 900;
-  box-shadow: 0 4px 14px rgba(238, 90, 46, 0.35);
+.lp-checklist__box.is-checked .lp-checklist__check { display: inline-block; }
+.lp-checklist__box:not(.is-checked) .lp-checklist__check { display: none; }
+
+/* Arrow image placeholder (Figma: ▼ 149x50) */
+.lp-health__arrow {
+  width: 100px;
+  height: 34px;
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* TODO: ▼ arrow.svg 差替え */
+  position: relative;
 }
-.lp-flow-guide__label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--lp-c-orange-d);
-  letter-spacing: 0.03em;
+/* Temporary CSS chevron until image is supplied */
+.lp-health__arrow::before {
+  content: "▼";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ee5a2e;
+  font-size: 28px;
+  font-weight: 900;
 }
 
+/* Result card */
 .lp-health__result {
-  margin-top: 20px;
-  background: var(--lp-c-white);
-  border: 2px solid var(--lp-c-orange);
-  border-radius: var(--lp-radius);
-  padding: 18px;
-  text-align: left;
+  background: #fff;
+  border: 2px solid #ee5a2e;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
 }
 .lp-health__result h3 {
-  font-size: 13px;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  color: var(--lp-c-orange);
-  letter-spacing: 0.03em;
-  margin-bottom: 6px;
-  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: #ee5a2e;
+  margin: 0;
 }
 .lp-health__result p {
-  font-size: 12px;
-  line-height: 2;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  color: var(--lp-c-text-sub);
+  font-size: 13px;
+  line-height: 2;
   letter-spacing: 0.03em;
+  color: #6b6b6b;
+  margin: 0;
+  text-align: center;
 }
 
 /* =========================================================
@@ -2373,29 +2431,31 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-case__ptilde { font-size: 20px; }
   .lp-case__ptax { font-size: 16px; }
 
-  /* ----- 07 HEALTH CHECK ----- */
-  .lp-health__title { font-size: 36px; gap: 10px; }
-  .lp-health__title::before { font-size: 30px; }
+  /* ----- 07 HEALTH CHECK — Figma実値 (PC 1440) ----- */
+  .lp-health { padding: 90px 112px; gap: 32px; }
+  .lp-health__title { font-size: 36px; letter-spacing: 0.05em; }
   .lp-checklist {
-    max-width: 640px;
-    margin: 32px auto 0;
-    padding: 24px 0;
+    padding: 24px 40px;
+    gap: 6px;
   }
   .lp-checklist__item {
-    font-size: 16px;
-    padding: 14px 40px;
-    gap: 14px;
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    height: 50px;
+    padding: 14px 16px;
   }
-  .lp-checklist__box { width: 24px; height: 24px; }
-  .lp-flow-guide { max-width: 640px; margin: 24px auto 0; }
-  .lp-flow-guide__arrow { width: 64px; height: 64px; font-size: 36px; }
+  .lp-health__arrow {
+    width: 149px;
+    height: 50px;
+  }
+  .lp-health__arrow::before { font-size: 40px; }
   .lp-health__result {
-    max-width: 640px;
-    margin: 24px auto 0;
-    padding: 28px;
+    padding: 28px 32px;
+    border-radius: 16px;
   }
-  .lp-health__result h3 { font-size: 20px; }
-  .lp-health__result p { font-size: 14px; text-align: center; }
+  .lp-health__result h3 { font-size: 20px; letter-spacing: 0.03em; }
+  .lp-health__result p { font-size: 14px; letter-spacing: 0.03em; }
 
   /* ----- 08 FINAL CTA — Figma実値ベース (PC 1440) ----- */
   .lp-finalcta { padding: 90px 228px; }
