@@ -33,7 +33,7 @@
     </nav>
     <div class="lp-header__right">
       <a href="#contact" class="lp-header__dlbtn">
-        <span class="lp-header__dlicon" aria-hidden="true">📥</span>
+        <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
         <span>資料ダウンロード</span>
       </a>
     </div>
@@ -84,7 +84,7 @@
       </ul>
 
       <a href="#contact" class="lp-btn lp-btn--cta">
-        <span class="lp-btn__icon" aria-hidden="true">📥</span>
+        <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
         <span>資料ダウンロード・無料見積り</span>
       </a>
     </div>
@@ -268,7 +268,7 @@
     </p>
 
     <a href="#contact" class="lp-btn lp-btn--cta">
-      <span class="lp-btn__icon" aria-hidden="true">📄</span>
+      <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
       <span>無料ダウンロードはこちら</span>
     </a>
   </section>
@@ -391,29 +391,36 @@
 
   <!-- ============ 08 FINAL CTA ============ -->
   <section class="lp-section lp-finalcta">
-    <header class="lp-section__head lp-finalcta__head">
-      <p class="lp-eyebrow lp-eyebrow--accent"><span>Contact</span></p>
-      <h2 class="lp-section__title lp-finalcta__title">
-        資料ダウンロード・<br>無料見積り依頼
-      </h2>
-    </header>
-    <p class="lp-finalcta__lead">
-      現地診断・お見積りは無料です。<br>まずはお気軽にご相談ください。
-    </p>
+    <div class="lp-finalcta__inner">
+      <header class="lp-section__head lp-finalcta__head">
+        <p class="lp-eyebrow lp-eyebrow--accent"><span>Contact</span></p>
+        <h2 class="lp-finalcta__title">資料ダウンロード・無料見積り依頼</h2>
+      </header>
+      <p class="lp-finalcta__lead">現地診断・お見積りは無料です。まずはお気軽にご相談ください。</p>
 
-    <div class="lp-finalcta__row">
-      <div class="lp-tel">
-        <p class="lp-tel__label"><span aria-hidden="true">📞</span>お電話でのお問合せ</p>
-        <a href="tel:044-877-5764" class="lp-tel__num">044-877-5764</a>
-        <p class="lp-tel__hours">受付時間 9:00〜18:00（日祝休）</p>
+      <div class="lp-finalcta__cards">
+        <div class="lp-finalcta__card">
+          <p class="lp-finalcta__cardlbl">
+            <span class="lp-icon" data-icon="phone" aria-hidden="true"></span>
+            電話でお問合せ
+          </p>
+          <a href="tel:044-877-5764" class="lp-finalcta__tel">044-877-5764</a>
+          <p class="lp-finalcta__hours">受付時間 9:00〜18:00（土日祝除く）</p>
+        </div>
+
+        <div class="lp-finalcta__card">
+          <p class="lp-finalcta__cardlbl">
+            <span class="lp-icon" data-icon="mail" aria-hidden="true"></span>
+            フォームからお問合せ
+          </p>
+          <a href="#contact" class="lp-btn lp-btn--grad">
+            <span>資料DL・無料見積りはこちら</span>
+            <span class="lp-btn__chev" aria-hidden="true">›</span>
+          </a>
+        </div>
       </div>
 
-      <div class="lp-or"><span>OR</span></div>
-
-      <a href="#contact" class="lp-btn lp-btn--white">
-        <span class="lp-btn__icon" aria-hidden="true">✉️</span>
-        <span>フォームから問合せ・資料DL</span>
-      </a>
+      <div class="lp-finalcta__chara" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -499,7 +506,7 @@
 
       <div class="lp-form__submit">
         <button type="submit" class="lp-btn lp-btn--cta lp-btn--lg">
-          <span class="lp-btn__icon" aria-hidden="true">📩</span>
+          <span class="lp-icon" data-icon="send" aria-hidden="true"></span>
           <span>上記内容で送信する</span>
           <span class="lp-btn__chev" aria-hidden="true">›</span>
         </button>
@@ -564,14 +571,14 @@
 <aside class="lp-fixedcta" aria-label="お問い合わせ追従ボタン">
   <p class="lp-fixedcta__bubble">今すぐタップで確認！</p>
   <a href="#contact" class="lp-fixedcta__btn">
-    <span class="lp-fixedcta__icon" aria-hidden="true">📥</span>
+    <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
     <span>資料DL・無料見積りはこちら</span>
   </a>
 </aside>
 
 <!-- ============ PC FLOATING SIDE CTA ============ -->
 <a href="#contact" class="lp-floating-cta" aria-label="CTAフォーム">
-  <span class="lp-floating-cta__icon" aria-hidden="true">📩</span>
+  <span class="lp-icon lp-floating-cta__icon" data-icon="mail" aria-hidden="true"></span>
   CTAフォーム
 </a>
 

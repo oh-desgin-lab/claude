@@ -109,35 +109,73 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-eyebrow--accent { color: var(--lp-c-accent); }
 .lp-eyebrow--accent::after { background: var(--lp-c-accent); }
 
-/* -------- Common: Button -------- */
+/* -------- Common: Button --------
+   ── btn-grad01 (Figma変数) と完全一致のgradient ──
+   background: linear-gradient(95deg, #EE5A2E 9.37%, #FFC847 93.27%)
+   box-shadow: 0 5px 16px 0 rgba(204,204,204,0.45)
+   ────────────────────────────────────── */
+:root {
+  --btn-grad01: linear-gradient(95deg, #EE5A2E 9.37%, #FFC847 93.27%);
+  --btn-grad02: linear-gradient(117.85deg, #EE5A2E 9.37%, #FFC847 93.27%);
+  --btn-shadow: 0 5px 16px 0 rgba(204, 204, 204, 0.45);
+  --btn-shadow-orange: 0 6px 18px 0 rgba(237, 89, 46, 0.35);
+}
+
 .lp-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 24px;
+  padding: 16px 28px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.05em;
   width: 100%;
   max-width: 335px;
+  color: var(--lp-c-white);
+  text-decoration: none;
   transition: transform .15s ease, box-shadow .15s ease;
 }
-.lp-btn--cta {
-  background: var(--lp-c-orange);
+/* メインCTAボタン: btn-grad01 適用 */
+.lp-btn--cta,
+.lp-btn--grad {
+  background: var(--btn-grad01);
   color: var(--lp-c-white);
-  box-shadow: var(--lp-shadow-orange);
+  box-shadow: var(--btn-shadow);
 }
-.lp-btn--cta:hover { transform: translateY(-2px); }
+.lp-btn--cta:hover,
+.lp-btn--grad:hover { transform: translateY(-2px); }
+
+/* secondary (アウトライン) */
 .lp-btn--white {
   background: var(--lp-c-white);
   color: var(--lp-c-orange);
   border: 2px solid var(--lp-c-orange);
 }
 .lp-btn--lg { padding: 20px 28px; font-size: 16px; max-width: none; }
-.lp-btn__icon { font-size: 16px; }
-.lp-btn__chev { font-size: 22px; line-height: 1; }
+.lp-btn__icon {
+  display: inline-block;
+  width: 16px; height: 16px;
+}
+.lp-btn__chev { font-size: 20px; line-height: 1; letter-spacing: 0.03em; }
+
+/* -------- Common: Icon placeholder (画像差替え用エリア) --------
+   差し替え方法: background-image / <img>挿入
+*/
+.lp-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.lp-icon[data-icon="phone"] { /* TODO: phone icon svg */ }
+.lp-icon[data-icon="mail"]  { /* TODO: mail icon svg */ }
+.lp-icon[data-icon="download"] { /* TODO: download icon svg */ }
 
 /* -------- Common: Marker -------- */
 .lp-marker {
@@ -1053,7 +1091,7 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   08 FINAL CTA
+   08 FINAL CTA — Figma実値ベース (1406:3507)
    ========================================================= */
 .lp-finalcta {
   background: var(--lp-c-orange);
@@ -1061,68 +1099,96 @@ input, select, textarea { font: inherit; color: inherit; }
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 56px 20px;
 }
-.lp-finalcta__title { color: var(--lp-c-white); }
-.lp-finalcta__lead {
-  font-size: 13px;
-  line-height: 1.8;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+/* TODO: 背景パターン画像差替え用エリア */
+.lp-finalcta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: none; /* images/cta-pattern.png 等で差替え */
+  opacity: 0.18;
+  pointer-events: none;
 }
-.lp-tel {
-  margin: 20px auto 0;
-  max-width: 335px;
-  background: var(--lp-c-white);
-  color: var(--lp-c-text);
-  border-radius: var(--lp-radius);
-  padding: 18px 20px;
+.lp-finalcta__inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 22px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.lp-tel__label {
-  font-size: 11px;
+.lp-finalcta__head { gap: 8px; }
+.lp-finalcta__title {
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  color: var(--lp-c-text-sub);
+  font-size: 26px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: var(--lp-c-white);
+  text-align: center;
+}
+.lp-finalcta__lead {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--lp-c-white);
+  opacity: 0.95;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.lp-finalcta__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+.lp-finalcta__card {
+  background: var(--lp-c-white);
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 140px;
+}
+.lp-finalcta__cardlbl {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-}
-.lp-tel__num {
-  font-family: var(--lp-ff-num);
-  font-size: 30px;
-  font-weight: 900;
-  color: var(--lp-c-orange);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-.lp-tel__hours {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--lp-c-text-muted);
-}
-.lp-or {
-  margin: 16px 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 335px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.lp-or::before,
-.lp-or::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,0.5);
-}
-.lp-or span {
-  font-family: var(--lp-ff-en);
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--lp-c-navy-deep);
+}
+.lp-finalcta__tel {
+  font-family: var(--lp-ff-num);
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--lp-c-navy);
+  letter-spacing: 0;
+}
+.lp-finalcta__hours {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--lp-c-text-muted);
+  letter-spacing: 0.03em;
+}
+/* キャラクター画像 placeholder（PC のみ表示・差替え用エリア） */
+.lp-finalcta__chara {
+  display: none;
+  width: 105px;
+  height: 143px;
+  background: transparent; /* images/chara1.png に差替え */
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* =========================================================
@@ -1350,8 +1416,10 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   SP FIXED BOTTOM CTA (SP/Tablet only)
-   黄色吹き出し「今すぐタップで確認！」+ オレンジ追従ボタン
+   SP FIXED BOTTOM CTA — Figma実値 (1406:3094)
+   - bubble: bg #FFF / shadow 0 6px 18px rgba(237,89,46,0.35) / radius 30px
+   - btn  : linear-gradient(119.37deg, #EE5A2E 9.37%, #FFB728 93.27%)
+   - 文字 : Noto Sans JP Bold 18px / tracking 0.54px
    ========================================================= */
 .lp-fixedcta {
   position: fixed;
@@ -1364,47 +1432,47 @@ input, select, textarea { font: inherit; color: inherit; }
   pointer-events: none;
 }
 .lp-fixedcta__bubble {
-  background: var(--lp-c-accent);
-  color: var(--lp-c-orange-d);
-  font-size: 13px;
+  background: var(--lp-c-white);
+  color: var(--lp-c-orange);
+  font-family: var(--lp-ff-jp);
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 6px 18px;
-  border-radius: 14px;
+  padding: 6px 22px;
+  border-radius: 30px;
   position: relative;
-  margin: 0 auto -6px;
+  margin: 0 auto -10px;
   z-index: 2;
   pointer-events: auto;
+  box-shadow: 0 6px 18px 0 rgba(237, 89, 46, 0.35);
 }
 .lp-fixedcta__bubble::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -8px;
+  bottom: -10px;
   transform: translateX(-50%);
   width: 0; height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid var(--lp-c-accent);
+  border-top: 13px solid var(--lp-c-white);
+  filter: drop-shadow(0 4px 4px rgba(237, 89, 46, 0.15));
 }
 .lp-fixedcta__btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  padding: 18px 16px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--lp-c-white);
-  background: linear-gradient(90deg, #F87038 0%, #EE5A2E 100%);
-  box-shadow: 0 -4px 16px rgba(238, 90, 46, 0.35);
-  pointer-events: auto;
-}
-.lp-fixedcta__icon {
+  padding: 20px 16px;
+  font-family: var(--lp-ff-jp);
   font-size: 18px;
-  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--lp-c-white);
+  background: linear-gradient(119.37deg, #EE5A2E 9.37%, #FFB728 93.27%);
+  pointer-events: auto;
+  text-decoration: none;
 }
 
 /* Reserve space for the fixed CTA bar on SP / tablet */
@@ -1766,39 +1834,46 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-health__result h3 { font-size: 20px; }
   .lp-health__result p { font-size: 14px; text-align: center; }
 
-  /* ----- 08 FINAL CTA ----- */
-  .lp-finalcta { padding: 96px 112px; position: relative; }
-  .lp-finalcta__title { font-size: 40px; }
-  .lp-finalcta__lead { font-size: 16px; }
-  .lp-finalcta__row {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+  /* ----- 08 FINAL CTA — Figma実値ベース (PC 1440) ----- */
+  .lp-finalcta { padding: 90px 228px; }
+  .lp-finalcta__inner { gap: 22px; width: 100%; max-width: 984px; }
+  .lp-finalcta__head { gap: 16px; margin-bottom: 0; }
+  .lp-finalcta__title {
+    font-size: 40px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+  .lp-finalcta__lead {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  .lp-finalcta__cards {
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
-    max-width: 1000px;
-    margin: 32px auto 0;
-    align-items: center;
-    justify-items: center;
   }
-  .lp-tel { max-width: 480px; width: 100%; padding: 28px 40px; }
-  .lp-tel__num { font-size: 42px; }
-  .lp-or {
-    flex-direction: column;
-    width: 60px; max-width: 60px;
-    margin: 0 auto;
+  .lp-finalcta__card {
+    padding: 28px 40px;
+    min-height: 180px;
+    gap: 6px;
   }
-  .lp-or::before, .lp-or::after { width: 1px; height: 30px; flex: none; }
-  .lp-finalcta .lp-btn--white {
-    padding: 24px 28px;
-    font-size: 16px;
+  .lp-finalcta__cardlbl { font-size: 16px; letter-spacing: 0.03em; }
+  .lp-finalcta__tel { font-size: 42px; }
+  .lp-finalcta__hours { font-size: 16px; }
+  /* Form card 内のCTAボタン: btn-grad02 (117.85deg) で実値一致 */
+  .lp-finalcta__card .lp-btn--grad {
+    background: var(--btn-grad02);
+    padding: 16px 28px;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    max-width: none;
+    width: auto;
   }
-  /* Mascot character on bottom right of finalCTA */
-  .lp-finalcta::after {
-    content: "🧑‍🔧";
+  /* キャラクター画像（PC 1440 → right: 176px / top: 407px に絶対配置） */
+  .lp-finalcta__chara {
+    display: block;
     position: absolute;
-    right: 60px; bottom: 30px;
-    font-size: 80px;
-    line-height: 1;
-    opacity: 0.95;
+    right: 176px;
+    top: 407px;
   }
 
   /* ----- 10 CONTACT FORM ----- */
