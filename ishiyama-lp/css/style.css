@@ -438,64 +438,147 @@ input, select, textarea { font: inherit; color: inherit; }
 .lp-btn--hero .lp-icon { width: 16px; height: 16px; }
 
 /* =========================================================
-   01 EMPATHY
-   ========================================================= */
-.lp-empathy { background: var(--lp-c-white); }
-.lp-empathy__card {
-  background: var(--lp-c-bg-blue);
-  border-radius: var(--lp-radius-l);
-  padding: 24px 20px;
-  margin-top: 8px;
-}
-.lp-empathy__lead {
-  font-size: 13px;
-  line-height: 2;
-  font-weight: 500;
-  color: var(--lp-c-text);
-  letter-spacing: 0.03em;
-}
-.lp-empathy__problem {
-  margin-top: 24px;
-  background: var(--lp-c-white);
-  border-radius: var(--lp-radius);
-  padding: 20px 16px;
-}
-.lp-empathy__heading {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--lp-c-saxblue);
-  letter-spacing: 0.03em;
-  text-align: center;
-}
-.lp-empathy__body {
-  margin-top: 12px;
-  font-size: 12px;
-  line-height: 1.9;
-  font-weight: 500;
-  color: var(--lp-c-text-sub);
-  letter-spacing: 0.03em;
-}
-.lp-bullets {
-  margin-top: 14px;
+   01 EMPATHY (About Your Door) — Figma実値 (1406:3193)
+   PC: bg #fff / padding 90px 112px 60px / gap 32
+   em_card: bg #e6f4fc / 1024w / padding 48px 56px / radius 24 / gap 40
+   ─────────────────────────────────────────────
+   ★ 「自分の家のドア」 は INLINE で #ee5a2e オレンジ色
+   ★ 黄色マーカー (225x9) は #ffff7b で 「自分の家のドア」 の下に
+   ────────────────────────────────────── */
+.lp-empathy {
+  background: #fff;
+  padding: 56px 20px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 24px;
 }
-.lp-bullets li {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--lp-c-text);
+.lp-empathy__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.lp-empathy__title {
   position: relative;
-  padding-left: 16px;
-  line-height: 1.7;
+  text-align: center;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
 }
-.lp-bullets li::before {
+/* インラインでオレンジハイライト + 黄色マーカー下線 */
+.lp-empathy__hl {
+  position: relative;
+  color: #ee5a2e;
+  display: inline-block;
+}
+.lp-empathy__hl::after {
   content: "";
   position: absolute;
-  left: 4px; top: 0.65em;
-  width: 6px; height: 6px;
-  background: var(--lp-c-orange);
+  left: 0; right: 0;
+  bottom: 0;
+  height: 8px;
+  background: #ffff7b;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+/* ── em_card ─────────────────────────────────── */
+.lp-empathy__card {
+  background: #e6f4fc;
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1024px;
+}
+
+/* ── 左側 本文 ─────────────────────────────── */
+.lp-empathy__text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2.1;
+  letter-spacing: 0.03em;
+  color: #2a2a2a;
+}
+.lp-empathy__text p { margin: 0; }
+
+/* ── 右側 ハイライトカード ───────────────── */
+.lp-empathy__hilite {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.lp-empathy__icon {
+  display: block;
+  width: 100px;
+  height: 80px;
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* TODO: 電球イラスト画像差替え (Figma: c) */
+}
+.lp-empathy__heading {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 16px;
+  color: #1aaee5;
+  margin: 0;
+  text-align: center;
+}
+.lp-empathy__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lp-empathy__bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  color: #333;
+}
+.lp-empathy__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.7em;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
+  background: #1aaee5;
+}
+.lp-empathy__sub {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  color: #333;
+  margin: 0;
 }
 
 /* =========================================================
@@ -1767,30 +1850,41 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-feature__num { font-size: 28px; }
   .lp-feature__unit { font-size: 13px; }
 
-  /* ----- 01 EMPATHY ----- */
+  /* ----- 01 EMPATHY — Figma実値 (PC 1440) ----- */
+  .lp-empathy { padding: 90px 112px 60px; gap: 32px; }
+  .lp-empathy__title {
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    width: 1216px;
+    max-width: 100%;
+  }
+  .lp-empathy__hl::after { height: 9px; }
   .lp-empathy__card {
-    max-width: 1024px;
-    margin: 0 auto;
+    width: 1024px;
+    max-width: 100%;
     padding: 48px 56px;
-    display: grid;
-    grid-template-columns: 421px 1fr;
-    gap: 96px;
-    align-items: start;
+    border-radius: 24px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
   }
-  .lp-empathy__lead {
-    font-size: 16px;
-    line-height: 2.2;
+  .lp-empathy__text {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    line-height: 2.1;
+    flex: 1;
+    min-width: 0;
   }
-  .lp-empathy__problem {
-    margin-top: 0;
-    padding: 28px 24px;
+  .lp-empathy__hilite {
+    width: 451px;
+    padding: 14px;
+    flex-shrink: 0;
   }
-  .lp-empathy__heading { font-size: 22px; text-align: left; }
-  .lp-empathy__body { font-size: 13px; margin-top: 14px; }
-  .lp-bullets li { font-size: 16px; }
-
-  /* Yellow marker for empathy headline */
-  .lp-marker { font-size: inherit; }
+  .lp-empathy__icon { width: 171px; height: 131px; }
+  .lp-empathy__heading { font-size: 18px; text-align: center; }
+  .lp-empathy__bullets li { font-size: 14px; }
+  .lp-empathy__sub { font-size: 14px; }
 
   /* ----- 02 COVER METHOD ----- */
   .lp-method { padding-top: 156px; }
