@@ -13,16 +13,14 @@
 </head>
 <body class="lp-body">
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER — Figma実値 (1406:3103) ============ -->
 <header class="lp-header">
   <div class="lp-header__inner">
     <a href="#" class="lp-logo">
       <span class="lp-logo__mark" aria-hidden="true">
-        <span class="lp-logo__face">👷</span>
+        <!-- ロゴ画像差替えエリア (Figma logo 34x34) -->
       </span>
-      <span class="lp-logo__text">
-        <span class="lp-logo__jp">株式会社イシヤマ</span>
-      </span>
+      <span class="lp-logo__jp">株式会社イシヤマ</span>
     </a>
     <nav class="lp-header__nav" aria-label="グローバルナビゲーション">
       <a href="#empathy">特徴</a>
@@ -31,62 +29,66 @@
       <a href="#">費用</a>
       <a href="#">会社概要</a>
     </nav>
-    <div class="lp-header__right">
-      <a href="#contact" class="lp-header__dlbtn">
-        <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
-        <span>資料ダウンロード</span>
-      </a>
-    </div>
+    <a href="#contact" class="lp-header__dlbtn">
+      <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
+      <span>資料ダウンロード</span>
+    </a>
   </div>
 </header>
 
 <main class="lp-main">
 
-  <!-- ============ HERO (FV) ============ -->
+  <!-- ============ HERO (FV) — Figma実値 (1406:3122) ============ -->
   <section class="lp-hero">
-    <div class="lp-hero__visual">
-      <picture class="lp-hero__photo">
-        <!-- 画像差し替え: ヒーロー写真（人物+玄関ドア） -->
-        <img src="images/hero-door.jpg" alt="マンションの玄関ドアリフォーム" loading="eager">
-      </picture>
-      <div class="lp-hero__mascot" aria-hidden="true">
-        <span class="lp-hero__mascot-face">👷</span>
-        <span class="lp-hero__mascot-msg">お任せください！</span>
-      </div>
-    </div>
+    <!-- 背景パターン画像差替えエリア (concrete texture) -->
+    <div class="lp-hero__bgpattern" aria-hidden="true"></div>
 
-    <div class="lp-hero__copy">
-      <p class="lp-hero__tag">築25年を過ぎた50戸未満マンションの皆様へ</p>
-      <h1 class="lp-hero__title">
-        <span>玄関ドアのリフォームなら</span>
-        <span>マンション・ビル専門改修工事の</span>
-        <span class="lp-hero__brand-line">
-          <span class="lp-hero__brand">「イシヤマ」</span>にお任せ下さい
-        </span>
-      </h1>
+    <div class="lp-hero__inner">
+      <div class="lp-hero__copy">
+        <p class="lp-hero__tag">築25年を過ぎた50戸未満マンションの皆様へ</p>
 
-      <ul class="lp-hero__features">
-        <li class="lp-feature lp-feature--price">
-          <span class="lp-feature__badge">特別価格</span>
-          <span class="lp-feature__label">1戸あたり</span>
-          <span class="lp-feature__price">
-            <span class="lp-feature__num">20.5</span><span class="lp-feature__unit">万円〜</span>
+        <h1 class="lp-hero__title">
+          <span class="lp-hero__line">玄関ドアのリフォームなら</span>
+          <span class="lp-hero__line">マンション・ビル専門改修工事の</span>
+          <span class="lp-hero__brandline">
+            <span class="lp-hero__brand">イシヤマ</span><span class="lp-hero__after">にお任せ下さい</span>
           </span>
-        </li>
-        <li class="lp-feature">
-          <span class="lp-feature__icon" aria-hidden="true">⚡</span>
-          <span class="lp-feature__text">最短2時間で施工</span>
-        </li>
-        <li class="lp-feature">
-          <span class="lp-feature__icon" aria-hidden="true">🔇</span>
-          <span class="lp-feature__text">騒音・振動が少ない</span>
-        </li>
-      </ul>
+        </h1>
 
-      <a href="#contact" class="lp-btn lp-btn--cta">
-        <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
-        <span>資料ダウンロード・無料見積り</span>
-      </a>
+        <ul class="lp-hero__features">
+          <li class="lp-feature">
+            <span class="lp-feature__bg" aria-hidden="true"></span>
+            <span class="lp-feature__txt">
+              <span class="lp-feature__lbl">特別価格</span>
+              <span class="lp-feature__price"><span class="lp-feature__num">20.5</span><span class="lp-feature__yen">万円～</span></span>
+            </span>
+          </li>
+          <li class="lp-feature">
+            <span class="lp-feature__bg" aria-hidden="true"></span>
+            <span class="lp-feature__txt">
+              <span class="lp-feature__row"><span class="lp-feature__sm">最短</span><span class="lp-feature__num lp-feature__num--m">2</span><span class="lp-feature__sm">時間</span><span class="lp-feature__xs">で</span></span>
+              <span class="lp-feature__sm">施工</span>
+            </span>
+          </li>
+          <li class="lp-feature">
+            <span class="lp-feature__bg" aria-hidden="true"></span>
+            <span class="lp-feature__txt">
+              <span class="lp-feature__row"><span class="lp-feature__md">騒音</span><span class="lp-feature__sm">・</span><span class="lp-feature__md">振動</span></span>
+              <span class="lp-feature__sm">が少ない</span>
+            </span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="lp-btn lp-btn--hero">
+          <span class="lp-icon" data-icon="download" aria-hidden="true"></span>
+          <span>資料ダウンロード・無料見積り</span>
+        </a>
+      </div>
+
+      <!-- 右側: 大型写真エリア（角丸トップ300px、bg #5f554d、画像差替え用） -->
+      <div class="lp-hero__photo">
+        <!-- TODO: 画像差替え (Figma: 29700533_m_2) -->
+      </div>
     </div>
   </section>
 
