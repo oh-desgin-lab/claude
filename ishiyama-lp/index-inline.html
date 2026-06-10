@@ -1204,219 +1204,268 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   10 CONTACT FORM
-   ========================================================= */
-.lp-form { background: var(--lp-c-bg-sub); }
-.lp-form__lead {
-  margin-top: 8px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 2;
-  color: var(--lp-c-text-sub);
-  letter-spacing: 0.03em;
-}
-.lp-form__inner {
-  margin-top: 24px;
+   10 CONTACT FORM — Figma実値 (1406:3649)
+   ─────────────────────────────────────────────
+   section bg: #f0f8fc / padding 56px 20px (SP) → 90px 112px (PC)
+   form_card : bg #fff / radius 20 / padding 24(SP)→56(PC) /
+                shadow 0 6px 18px rgba(26,69,140,0.06) / gap 28px
+   ────────────────────────────────────────── */
+.lp-form {
+  background: #f0f8fc;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 24px;
+  padding: 56px 20px;
 }
+.lp-form__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.lp-form__title {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  text-align: center;
+  margin: 0;
+}
+.lp-form__lead {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+/* ── form_card (the white wrapper) ────────────── */
+.lp-form__card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 16px;
+  box-shadow: 0 6px 18px 0 rgba(26, 69, 140, 0.06);
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Field block ─────────────────────────────── */
 .lp-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
-.lp-field__label {
+.lp-field__head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--lp-c-text);
-  letter-spacing: 0.03em;
+  gap: 10px;
 }
-.lp-badge {
-  font-size: 10px;
+.lp-field__label {
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  padding: 3px 7px;
-  border-radius: 4px;
+  font-size: 16px;
   letter-spacing: 0.03em;
-  line-height: 1;
+  color: #2a2a2a;
+  line-height: 1.2;
+}
+
+/* ── Required / Optional badges ──────────────── */
+.lp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
 }
 .lp-badge--required {
-  background: var(--lp-c-orange);
-  color: var(--lp-c-white);
+  background: #ee5a2e;
+  color: #fff;
 }
 .lp-badge--optional {
-  background: var(--lp-c-white);
-  color: var(--lp-c-text-sub);
-  border: 1px solid var(--lp-c-border-s);
+  background: #fff;
+  color: #6b6b6b;
+  border: 1px solid #a8c5d9;
 }
+
+/* ── Input / Select / Textarea ───────────────── */
 .lp-field input,
 .lp-field textarea,
 .lp-field select {
   width: 100%;
-  background: var(--lp-c-white);
-  border: 1.5px solid var(--lp-c-border);
+  background: #fff;
+  border: 1.5px solid #cfe3ef;
   border-radius: 10px;
-  padding: 14px;
-  font-size: 13px;
+  padding: 0 18px;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  color: var(--lp-c-text);
+  font-size: 15px;
   letter-spacing: 0.03em;
-  line-height: 1.7;
+  color: #2a2a2a;
+}
+.lp-field input,
+.lp-field select {
+  height: 56px;
 }
 .lp-field input::placeholder,
 .lp-field textarea::placeholder {
-  color: var(--lp-c-text-muted);
+  color: #9a9a9a;
   font-weight: 500;
 }
 .lp-field input:focus,
 .lp-field textarea:focus,
 .lp-field select:focus {
   outline: none;
-  border-color: var(--lp-c-saxblue);
+  border-color: #1aaee5;
   box-shadow: 0 0 0 3px rgba(26, 174, 229, 0.15);
 }
-.lp-field input[type="email"],
-.lp-field input[type="tel"],
-.lp-field input[type="text"] {
-  height: 52px;
-}
 .lp-field textarea {
-  min-height: 160px;
+  height: 200px;
+  padding: 18px;
   resize: vertical;
+  line-height: 2;
   font-family: var(--lp-ff-jp);
 }
 
-/* Select with custom chevron */
+/* ── Select with custom chevron ──────────────── */
 .lp-select {
   position: relative;
 }
 .lp-select::after {
   content: "▾";
   position: absolute;
-  right: 14px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--lp-c-saxblue);
-  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1aaee5;
+  font-size: 16px;
   font-weight: 700;
   pointer-events: none;
 }
 .lp-select select {
   appearance: none;
   -webkit-appearance: none;
-  height: 52px;
-  padding-right: 36px;
+  -moz-appearance: none;
+  padding-right: 48px;
+  background-image: none;
 }
 
+/* ── Privacy box ─────────────────────────────── */
 .lp-privacy {
-  background: var(--lp-c-bg-blue);
-  border-radius: 10px;
-  padding: 16px;
+  background: #e6f4fc;
+  border-radius: 12px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  align-items: center;
 }
-.lp-privacy p {
-  font-size: 11px;
+.lp-privacy__note {
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  line-height: 2;
-  color: var(--lp-c-text-sub);
+  font-size: 13px;
+  line-height: 1.7;
   letter-spacing: 0.03em;
+  color: #6b6b6b;
 }
 .lp-privacy__check {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 12px;
+  gap: 12px;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
   cursor: pointer;
 }
 .lp-privacy__check input[type="checkbox"] {
-  width: 22px; height: 22px;
+  width: 24px;
+  height: 24px;
   margin: 0;
-  accent-color: var(--lp-c-saxblue);
+  border: 2px solid #1aaee5;
   border-radius: 4px;
+  background: #fff;
+  accent-color: #1aaee5;
   flex-shrink: 0;
 }
-.lp-privacy__check a {
-  color: var(--lp-c-saxblue);
-  text-decoration: underline;
+.lp-privacy__txt { color: #2a2a2a; }
+.lp-privacy__txt a {
+  color: #1aaee5;
+  text-decoration: none;
 }
+
+/* ── Submit ──────────────────────────────────── */
 .lp-form__submit {
-  margin-top: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  margin-top: 4px;
 }
+/* Figma実値: solid #ee5a2e (gradientではなく単色!) */
+.lp-form__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  height: 68px;
+  border-radius: 34px;
+  background: #ee5a2e;
+  color: #fff;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 20px 0 rgba(237, 89, 46, 0.35);
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .15s ease;
+}
+.lp-form__btn:hover { transform: translateY(-2px); }
+.lp-form__btn .lp-icon { width: 22px; height: 22px; }
 .lp-form__note {
-  font-size: 11px;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  color: var(--lp-c-text-muted);
-  text-align: center;
+  font-size: 12px;
   letter-spacing: 0.03em;
+  color: #9a9a9a;
 }
 
 /* =========================================================
-   FOOTER
+   FOOTER (copyright only)
    ========================================================= */
 .lp-footer {
   background: var(--lp-c-navy-deep);
   color: var(--lp-c-white);
-  padding: 40px 20px 24px;
-}
-.lp-footer__company {
-  display: flex; flex-direction: column; gap: 10px;
-}
-.lp-logo--footer .lp-logo__mark {
-  width: 36px; height: 36px; border-radius: 8px;
-}
-.lp-logo--footer .lp-logo__door { width: 18px; height: 24px; }
-.lp-logo--footer .lp-logo__en {
-  font-size: 10px; opacity: 0.7;
-  color: var(--lp-c-white);
-}
-.lp-logo--footer .lp-logo__jp {
-  font-size: 14px; color: var(--lp-c-white);
-}
-.lp-footer__addr {
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.8;
-  opacity: 0.7;
-}
-.lp-footer__tagline {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--lp-c-accent);
-}
-
-.lp-footer__nav {
-  margin-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
-.lp-footer__nav a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  font-size: 13px;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-.lp-footer__nav a span { opacity: 0.5; font-size: 16px; font-weight: 700; }
-
-.lp-footer__copy {
-  margin-top: 24px;
+  padding: 24px 20px;
   text-align: center;
+}
+.lp-footer__copy {
   font-family: var(--lp-ff-en);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  opacity: 0.5;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  margin: 0;
 }
 
 /* =========================================================
@@ -1888,95 +1937,20 @@ input, select, textarea { font: inherit; color: inherit; }
     top: 407px;
   }
 
-  /* ----- 10 CONTACT FORM ----- */
-  .lp-form { padding: 96px 112px; }
-  .lp-form__inner {
-    max-width: 880px;
-    margin: 40px auto 0;
-    padding: 56px;
-    background: var(--lp-c-white);
-    border-radius: var(--lp-radius-l);
-    box-shadow: 0 6px 18px rgba(16, 47, 94, 0.06);
-    gap: 28px;
-  }
-  .lp-field__label { font-size: 16px; }
-  .lp-badge { font-size: 12px; padding: 4px 8px; }
-  .lp-field input,
-  .lp-field textarea,
-  .lp-field select { font-size: 15px; padding: 18px; }
-  .lp-field input[type="email"],
-  .lp-field input[type="tel"],
-  .lp-field input[type="text"] { height: 56px; }
-  .lp-select select { height: 56px; }
-  .lp-select::after { font-size: 16px; }
-  .lp-field textarea { min-height: 200px; }
-  .lp-privacy { padding: 24px; }
-  .lp-privacy p { font-size: 13px; }
-  .lp-privacy__check { font-size: 14px; gap: 12px; }
-  .lp-form__submit { margin-top: 8px; }
-  .lp-form__submit .lp-btn {
-    max-width: 420px;
-    padding: 22px 32px;
-    font-size: 18px;
-  }
-  .lp-form__note { font-size: 12px; }
+  /* ----- 10 CONTACT FORM — Figma実値 (PC 1440) ----- */
+  .lp-form { padding: 90px 112px; gap: 40px; }
+  .lp-form__head { gap: 16px; }
+  .lp-form__title { font-size: 36px; letter-spacing: 0.05em; }
+  .lp-form__lead { font-size: 16px; letter-spacing: 0.03em; }
+  .lp-form__card { padding: 56px; gap: 28px; max-width: 880px; }
+  .lp-privacy { padding: 24px; gap: 14px; }
+  .lp-privacy__note { font-size: 15px; line-height: 1.6; letter-spacing: 0.03em; }
+  .lp-form__submit { gap: 20px; }
+  .lp-form__btn { width: 420px; }
 
-  /* ----- FOOTER ----- */
-  .lp-footer {
-    padding: 64px 112px 32px;
-  }
-  .lp-footer__inner {
-    max-width: 1216px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-  }
-  .lp-footer__company { gap: 14px; }
-  .lp-logo--footer .lp-logo__mark { width: 48px; height: 48px; border-radius: 12px; }
-  .lp-logo--footer .lp-logo__door { width: 24px; height: 32px; }
-  .lp-logo--footer .lp-logo__en { font-size: 12px; }
-  .lp-logo--footer .lp-logo__jp { font-size: 18px; }
-  .lp-footer__addr { font-size: 12px; }
-  .lp-footer__tagline { font-size: 12px; }
-
-  .lp-footer__nav {
-    margin-top: 0;
-    border-top: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-  }
-  .lp-footer__nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .lp-footer__nav a {
-    padding: 0;
-    border-bottom: 0;
-    font-size: 13px;
-    justify-content: flex-start;
-    gap: 6px;
-  }
-  .lp-footer__nav a span { display: none; }
-  .lp-footer__navtitle {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--lp-c-accent);
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-  }
-  .lp-footer__copy {
-    max-width: 1216px;
-    margin: 24px auto 0;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    font-size: 11px;
-  }
+  /* ----- FOOTER (copyright only) ----- */
+  .lp-footer { padding: 32px 112px; }
+  .lp-footer__copy { font-size: 12px; }
 
   /* ----- Floating side CTA button (PC only) ----- */
   .lp-floating-cta {
@@ -2430,23 +2404,21 @@ input, select, textarea { font: inherit; color: inherit; }
     </div>
   </section>
 
-  <!-- ============ 10 CONTACT FORM ============ -->
+  <!-- ============ 10 CONTACT FORM — Figma実値 (1406:3649) ============ -->
   <section class="lp-section lp-form" id="contact">
-    <header class="lp-section__head">
+    <header class="lp-form__head">
       <p class="lp-eyebrow"><span>Contact Form</span></p>
-      <h2 class="lp-section__title">お問い合わせフォーム</h2>
+      <h2 class="lp-form__title">お問い合わせフォーム</h2>
     </header>
+    <p class="lp-form__lead">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
 
-    <p class="lp-form__lead">下記フォームに必要事項をご入力の上、<br>送信ボタンを押してください。</p>
-
-    <!--
-      ▼ Contact Form 7 連携メモ
-      下記 <form> 内をCF7ショートコードで置換予定。
-      各フィールドの name 属性をCF7のtag nameに合わせてください。
-    -->
-    <form class="lp-form__inner" action="#" method="post">
+    <!-- ▼ CF7置換予定: form_card 内側を CF7 ショートコードで置換 -->
+    <form class="lp-form__card" action="#" method="post">
       <div class="lp-field">
-        <label class="lp-field__label" for="f-industry">業種<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-industry">業種</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <div class="lp-select">
           <select id="f-industry" name="industry" required>
             <option value="">項目を選択してください</option>
@@ -2458,32 +2430,50 @@ input, select, textarea { font: inherit; color: inherit; }
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-company">会社名<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-company">会社名</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="text" id="f-company" name="company" placeholder="例）株式会社〇〇〇〇〇〇" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-name">お名前<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-name">お名前</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="text" id="f-name" name="your-name" placeholder="例）山田　太郎" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-email">メールアドレス<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-email">メールアドレス</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="email" id="f-email" name="your-email" placeholder="例）info@example.com" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-tel">お電話番号<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-tel">お電話番号</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <input type="tel" id="f-tel" name="tel" placeholder="例）000-0000-0000">
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-address">ご住所<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-address">ご住所</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <input type="text" id="f-address" name="address" placeholder="例）神奈川県川崎市宮前区神木本町1丁目16番11号">
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-service">ご希望のサービス<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-service">ご希望のサービス</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <div class="lp-select">
           <select id="f-service" name="service">
             <option value="">項目を選択してください</option>
@@ -2495,7 +2485,10 @@ input, select, textarea { font: inherit; color: inherit; }
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-message">お問い合わせ内容<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-message">お問い合わせ内容</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <textarea id="f-message" name="your-message" rows="6" required placeholder="例）築28年の50戸マンションです。
 玄関ドアの全戸交換を検討しております。
 まずは無料診断と概算見積りをお願いできますでしょうか。
@@ -2503,18 +2496,17 @@ input, select, textarea { font: inherit; color: inherit; }
       </div>
 
       <div class="lp-privacy">
-        <p>ご入力いただいた個人情報は、お問い合わせへの返信および当社からのご案内のみに使用し、第三者には提供しません。</p>
+        <p class="lp-privacy__note">ご入力いただいた個人情報は、お問い合わせへの返信および当社からのご案内のみに使用し、第三者には提供しません。</p>
         <label class="lp-privacy__check">
           <input type="checkbox" name="agree" value="1" required>
-          <span><a href="#">プライバシーポリシー</a>に同意する</span>
+          <span class="lp-privacy__txt"><a href="#">プライバシーポリシー</a>に同意する</span>
         </label>
       </div>
 
       <div class="lp-form__submit">
-        <button type="submit" class="lp-btn lp-btn--cta lp-btn--lg">
-          <span class="lp-icon" data-icon="send" aria-hidden="true"></span>
+        <button type="submit" class="lp-form__btn">
+          <span class="lp-icon" data-icon="paperplane" aria-hidden="true"></span>
           <span>上記内容で送信する</span>
-          <span class="lp-btn__chev" aria-hidden="true">›</span>
         </button>
         <p class="lp-form__note">※確認画面はございません。送信前にご確認ください。</p>
       </div>
@@ -2523,54 +2515,9 @@ input, select, textarea { font: inherit; color: inherit; }
 
 </main>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (copyright only) ============ -->
 <footer class="lp-footer">
-  <div class="lp-footer__inner">
-    <div class="lp-footer__company">
-      <a href="#" class="lp-logo lp-logo--footer">
-        <span class="lp-logo__mark" aria-hidden="true"><span class="lp-logo__door"></span></span>
-        <span class="lp-logo__text">
-          <span class="lp-logo__en">ISHIYAMA</span>
-          <span class="lp-logo__jp">株式会社イシヤマ</span>
-        </span>
-      </a>
-      <p class="lp-footer__addr">〒216-0031<br>神奈川県川崎市高津区溝の口5丁目1番6号11<br>TEL: 044-877-5764 / 9:00〜18:00（日祝休）</p>
-      <p class="lp-footer__tagline">小規模マンション専門の改修工事</p>
-    </div>
-
-    <nav class="lp-footer__nav" aria-label="フッターナビゲーション">
-      <div>
-        <p class="lp-footer__navtitle">サービス</p>
-        <ul>
-          <li><a href="#empathy">特徴 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#method">カバー工法 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#cases">施工事例 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">費用 <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="lp-footer__navtitle">会社情報</p>
-        <ul>
-          <li><a href="#">会社概要 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">代表挨拶 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">採用情報 <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="lp-footer__navtitle">サポート</p>
-        <ul>
-          <li><a href="#contact">資料ダウンロード <span aria-hidden="true">›</span></a></li>
-          <li><a href="#contact">お問合せ <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">プライバシーポリシー <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <div class="lp-footer__copy">
-    <span>© 2026 ISHIYAMA Co., Ltd. All Rights Reserved.</span>
-    <span>Designed with ♥ in Kawasaki</span>
-  </div>
+  <p class="lp-footer__copy">© 2026 ISHIYAMA Co., Ltd. All Rights Reserved.</p>
 </footer>
 
 <!-- ============ SP FIXED BOTTOM CTA ============ -->

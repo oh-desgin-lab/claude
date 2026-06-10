@@ -424,23 +424,21 @@
     </div>
   </section>
 
-  <!-- ============ 10 CONTACT FORM ============ -->
+  <!-- ============ 10 CONTACT FORM — Figma実値 (1406:3649) ============ -->
   <section class="lp-section lp-form" id="contact">
-    <header class="lp-section__head">
+    <header class="lp-form__head">
       <p class="lp-eyebrow"><span>Contact Form</span></p>
-      <h2 class="lp-section__title">お問い合わせフォーム</h2>
+      <h2 class="lp-form__title">お問い合わせフォーム</h2>
     </header>
+    <p class="lp-form__lead">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
 
-    <p class="lp-form__lead">下記フォームに必要事項をご入力の上、<br>送信ボタンを押してください。</p>
-
-    <!--
-      ▼ Contact Form 7 連携メモ
-      下記 <form> 内をCF7ショートコードで置換予定。
-      各フィールドの name 属性をCF7のtag nameに合わせてください。
-    -->
-    <form class="lp-form__inner" action="#" method="post">
+    <!-- ▼ CF7置換予定: form_card 内側を CF7 ショートコードで置換 -->
+    <form class="lp-form__card" action="#" method="post">
       <div class="lp-field">
-        <label class="lp-field__label" for="f-industry">業種<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-industry">業種</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <div class="lp-select">
           <select id="f-industry" name="industry" required>
             <option value="">項目を選択してください</option>
@@ -452,32 +450,50 @@
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-company">会社名<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-company">会社名</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="text" id="f-company" name="company" placeholder="例）株式会社〇〇〇〇〇〇" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-name">お名前<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-name">お名前</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="text" id="f-name" name="your-name" placeholder="例）山田　太郎" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-email">メールアドレス<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-email">メールアドレス</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <input type="email" id="f-email" name="your-email" placeholder="例）info@example.com" required>
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-tel">お電話番号<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-tel">お電話番号</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <input type="tel" id="f-tel" name="tel" placeholder="例）000-0000-0000">
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-address">ご住所<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-address">ご住所</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <input type="text" id="f-address" name="address" placeholder="例）神奈川県川崎市宮前区神木本町1丁目16番11号">
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-service">ご希望のサービス<span class="lp-badge lp-badge--optional">任意</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-service">ご希望のサービス</label>
+          <span class="lp-badge lp-badge--optional">任意</span>
+        </div>
         <div class="lp-select">
           <select id="f-service" name="service">
             <option value="">項目を選択してください</option>
@@ -489,7 +505,10 @@
       </div>
 
       <div class="lp-field">
-        <label class="lp-field__label" for="f-message">お問い合わせ内容<span class="lp-badge lp-badge--required">必須</span></label>
+        <div class="lp-field__head">
+          <label class="lp-field__label" for="f-message">お問い合わせ内容</label>
+          <span class="lp-badge lp-badge--required">必須</span>
+        </div>
         <textarea id="f-message" name="your-message" rows="6" required placeholder="例）築28年の50戸マンションです。
 玄関ドアの全戸交換を検討しております。
 まずは無料診断と概算見積りをお願いできますでしょうか。
@@ -497,18 +516,17 @@
       </div>
 
       <div class="lp-privacy">
-        <p>ご入力いただいた個人情報は、お問い合わせへの返信および当社からのご案内のみに使用し、第三者には提供しません。</p>
+        <p class="lp-privacy__note">ご入力いただいた個人情報は、お問い合わせへの返信および当社からのご案内のみに使用し、第三者には提供しません。</p>
         <label class="lp-privacy__check">
           <input type="checkbox" name="agree" value="1" required>
-          <span><a href="#">プライバシーポリシー</a>に同意する</span>
+          <span class="lp-privacy__txt"><a href="#">プライバシーポリシー</a>に同意する</span>
         </label>
       </div>
 
       <div class="lp-form__submit">
-        <button type="submit" class="lp-btn lp-btn--cta lp-btn--lg">
-          <span class="lp-icon" data-icon="send" aria-hidden="true"></span>
+        <button type="submit" class="lp-form__btn">
+          <span class="lp-icon" data-icon="paperplane" aria-hidden="true"></span>
           <span>上記内容で送信する</span>
-          <span class="lp-btn__chev" aria-hidden="true">›</span>
         </button>
         <p class="lp-form__note">※確認画面はございません。送信前にご確認ください。</p>
       </div>
@@ -517,54 +535,9 @@
 
 </main>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (copyright only) ============ -->
 <footer class="lp-footer">
-  <div class="lp-footer__inner">
-    <div class="lp-footer__company">
-      <a href="#" class="lp-logo lp-logo--footer">
-        <span class="lp-logo__mark" aria-hidden="true"><span class="lp-logo__door"></span></span>
-        <span class="lp-logo__text">
-          <span class="lp-logo__en">ISHIYAMA</span>
-          <span class="lp-logo__jp">株式会社イシヤマ</span>
-        </span>
-      </a>
-      <p class="lp-footer__addr">〒216-0031<br>神奈川県川崎市高津区溝の口5丁目1番6号11<br>TEL: 044-877-5764 / 9:00〜18:00（日祝休）</p>
-      <p class="lp-footer__tagline">小規模マンション専門の改修工事</p>
-    </div>
-
-    <nav class="lp-footer__nav" aria-label="フッターナビゲーション">
-      <div>
-        <p class="lp-footer__navtitle">サービス</p>
-        <ul>
-          <li><a href="#empathy">特徴 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#method">カバー工法 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#cases">施工事例 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">費用 <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="lp-footer__navtitle">会社情報</p>
-        <ul>
-          <li><a href="#">会社概要 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">代表挨拶 <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">採用情報 <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="lp-footer__navtitle">サポート</p>
-        <ul>
-          <li><a href="#contact">資料ダウンロード <span aria-hidden="true">›</span></a></li>
-          <li><a href="#contact">お問合せ <span aria-hidden="true">›</span></a></li>
-          <li><a href="#">プライバシーポリシー <span aria-hidden="true">›</span></a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <div class="lp-footer__copy">
-    <span>© 2026 ISHIYAMA Co., Ltd. All Rights Reserved.</span>
-    <span>Designed with ♥ in Kawasaki</span>
-  </div>
+  <p class="lp-footer__copy">© 2026 ISHIYAMA Co., Ltd. All Rights Reserved.</p>
 </footer>
 
 <!-- ============ SP FIXED BOTTOM CTA ============ -->
