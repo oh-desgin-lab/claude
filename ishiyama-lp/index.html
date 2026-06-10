@@ -218,16 +218,16 @@
     </ol>
   </section>
 
-  <!-- ============ 04 MERITS ============ -->
-  <section class="lp-section lp-merits" id="merits">
-    <header class="lp-section__head">
-      <p class="lp-eyebrow"><span>Merit</span></p>
-      <h2 class="lp-section__title">
-        ドアリニューアルの<br>メリット
+  <!-- ============ 04 MERITS — Figma実値 (1406:3354) ============ -->
+  <section class="lp-merits" id="merits">
+    <header class="lp-merits__head">
+      <p class="lp-eyebrow lp-eyebrow--noline lp-eyebrow--tight"><span>Merit</span></p>
+      <h2 class="lp-merits__title">
+        ドアリニューアルの<span class="lp-merits__hl">メリット</span>
       </h2>
     </header>
 
-    <div class="lp-tabs" role="tablist">
+    <div class="lp-merits__tabs" role="tablist">
       <button class="lp-tab is-active" role="tab" aria-selected="true">資産価値向上</button>
       <button class="lp-tab" role="tab" aria-selected="false">耐震</button>
       <button class="lp-tab" role="tab" aria-selected="false">防犯</button>
@@ -236,20 +236,23 @@
     </div>
 
     <div class="lp-merits__panel">
-      <div class="lp-merits__visual">
-        <span aria-hidden="true">📈</span>
+      <!-- 画像差替えエリア (Figma: Frame 291x206) -->
+      <div class="lp-merits__visual" aria-hidden="true"></div>
+      <div class="lp-merits__copy">
+        <h3 class="lp-merits__copytitle">
+          毎日の「重い・うるさい」を<br>
+          今日で終わりに。<br>
+          <span class="lp-merits__hl">隙間風を防ぎ、断熱性も向上</span>
+        </h3>
+        <p class="lp-merits__body">
+          開閉がスムーズになり、騒音も軽減。高断熱ドアで冷暖房効率が上がり、光熱費の削減にも貢献します。毎日の快適さが違います。
+        </p>
       </div>
-      <h3 class="lp-merits__title">
-        毎日の「重い・うるさい」を<br>今日で終わりに。<br>隙間風を防ぎ、断熱性も向上
-      </h3>
-      <p class="lp-merits__body">
-        開閉がスムーズになり、騒音も軽減。高断熱ドアで冷暖房効率が上がり、光熱費の削減にも貢献します。毎日の快適さが違います。
-      </p>
     </div>
 
-    <div class="lp-pagination" aria-hidden="true">
-      <span class="is-active"></span><span></span><span></span><span></span><span></span>
-    </div>
+    <ul class="lp-pagination" aria-hidden="true">
+      <li class="is-active"></li><li></li><li></li><li></li><li></li>
+    </ul>
   </section>
 
   <!-- ============ 05 RIJIKAI ============ -->
