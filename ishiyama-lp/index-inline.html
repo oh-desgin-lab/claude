@@ -8,7 +8,7 @@
 <meta name="description" content="築25年を過ぎた50戸未満マンション向けの玄関ドアリフォーム。カバー工法で1戸あたり20.5万円〜、最短2時間で施工。神奈川・川崎の株式会社イシヤマ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@600;700;900&family=Roboto:wght@900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@700&family=Poppins:wght@600;700;900&family=Roboto:wght@700;900&display=swap">
 <style>
 @charset "UTF-8";
 
@@ -800,84 +800,149 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   03 REASONS
-   ========================================================= */
-.lp-reasons { background: var(--lp-c-white); text-align: center; }
-.lp-reasons__title {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.lp-reasons__big {
-  font-family: var(--lp-ff-num);
-  font-size: 44px;
-  line-height: 1;
-  color: var(--lp-c-saxblue);
-  letter-spacing: -0.02em;
-}
-.lp-reasons__list {
-  margin-top: 24px;
+   03 REASONS — Figma実値 (1406:3302)
+   ─────────────────────────────────────────────
+   - section bg #f0f8fc / border-top 6px solid #53c8c8
+   - padding 90px 112px / gap 32 (PC)
+   - eyebrow Reasons: Poppins SemiBold 18 / #1aaee5 / tracking 0.54px (細）/ NO underline
+   - heading: 36px Bold + '5' Oswald 64px gradient text (#1aaee5 → #98e7e7)
+   - 5 cards 880w (PC): bg white / border 1.5px #9CC / radius 18
+     padding 28px / shadow 0 4px 14px rgba(26,69,140,0.06) / gap 20
+   - Roboto Black 52px tracking -1.04px per card
+     01:#1aaee5 / 02:#9cc / 03:#45c4f6 / 04:#0081c2 / 05:#16458c
+   - Title 24px Bold / Body 16px Medium #6b6b6b line-height 1.9
+   - Connectors 880w x 36h / 2px SOLID #9cc / left 65px
+   ────────────────────────────────────── */
+.lp-reasons {
+  background: #f0f8fc;
+  border-top: 6px solid #53c8c8;
+  padding: 56px 20px;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  text-align: left;
+  align-items: center;
+  gap: 24px;
 }
+.lp-reasons__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+/* Eyebrow variant: tracking 0.54px (this section only) */
+.lp-eyebrow--tight { letter-spacing: 0.03em; }
+
+.lp-reasons__title {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 0;
+  line-height: 1;
+}
+.lp-reasons__txt {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #333;
+  line-height: 1;
+}
+/* "5" — Oswald Bold gradient text */
+.lp-reasons__big {
+  font-family: "Oswald", var(--lp-ff-num);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  background: linear-gradient(180deg, #1aaee5 0%, #98e7e7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Card list */
+.lp-reasons__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Card */
 .lp-reason {
-  background: var(--lp-c-white);
-  border: 1.5px solid var(--lp-c-border);
-  border-radius: var(--lp-radius);
-  padding: 18px 16px 18px 18px;
+  background: #fff;
+  border: 1.5px solid #9cc;
+  border-radius: 18px;
+  padding: 20px 16px 20px 20px;
   display: flex;
   align-items: center;
   gap: 14px;
-  box-shadow: 0 2px 8px rgba(16, 47, 94, 0.05);
+  box-shadow: 0 4px 14px 0 rgba(26, 69, 140, 0.06);
+  width: 100%;
+  max-width: 880px;
 }
 .lp-reason__num {
-  font-family: var(--lp-ff-num);
-  font-size: 38px;
+  font-family: "Roboto", var(--lp-ff-num);
+  font-weight: 900;
+  font-size: 40px;
   line-height: 1;
   letter-spacing: -0.02em;
-  font-weight: 900;
   flex-shrink: 0;
 }
-.lp-reason[data-color="blue"]   .lp-reason__num { color: var(--lp-c-saxblue); }
-.lp-reason[data-color="yellow"] .lp-reason__num { color: var(--lp-c-accent); }
-.lp-reason[data-color="green"]  .lp-reason__num { color: var(--lp-c-green); }
-.lp-reason[data-color="navy"]   .lp-reason__num { color: var(--lp-c-navy); }
+/* Per-card colors (Figma実値) */
+.lp-reason[data-num="01"] .lp-reason__num { color: #1aaee5; }
+.lp-reason[data-num="02"] .lp-reason__num { color: #9cc; }
+.lp-reason[data-num="03"] .lp-reason__num { color: #45c4f6; }
+.lp-reason[data-num="04"] .lp-reason__num { color: #0081c2; }
+.lp-reason[data-num="05"] .lp-reason__num { color: #16458c; }
 
 .lp-reason__sep {
   width: 2px;
   align-self: stretch;
-  background: var(--lp-c-border);
+  background: rgba(153, 204, 204, 0.3);
   border-radius: 1px;
   flex-shrink: 0;
 }
-.lp-reason__body { flex: 1; }
+.lp-reason__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .lp-reason__body h3 {
-  font-size: 15px;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  line-height: 1.5;
-  margin-bottom: 4px;
-  letter-spacing: 0.03em;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
 }
 .lp-reason__body p {
-  font-size: 11px;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  color: var(--lp-c-text-sub);
-  line-height: 1.8;
+  font-size: 12px;
+  line-height: 1.9;
   letter-spacing: 0.03em;
+  color: #6b6b6b;
+  margin: 0;
 }
-/* Vertical dashed connector between cards */
+
+/* Connector (SOLID 2px line) */
 .lp-reason + .lp-reason {
-  margin-top: 22px;
+  margin-top: 36px;
   position: relative;
 }
 .lp-reason + .lp-reason::before {
   content: "";
   position: absolute;
-  left: 41px;
-  top: -22px; height: 22px;
-  width: 0; border-left: 2px dashed rgba(26, 174, 229, 0.45);
+  left: 35px;
+  top: -36px;
+  height: 36px;
+  width: 0;
+  border-left: 2px solid #9cc;
 }
 
 /* =========================================================
@@ -2009,30 +2074,28 @@ input, select, textarea { font: inherit; color: inherit; }
     gap: 24px;
   }
 
-  /* ----- 03 REASONS ----- */
-  .lp-reasons__title { font-size: 36px; }
-  .lp-reasons__big { font-size: 60px; }
-  .lp-reasons__list {
-    max-width: 880px;
-    margin: 32px auto 0;
-  }
+  /* ----- 03 REASONS — Figma実値 (PC 1440) ----- */
+  .lp-reasons { padding: 90px 112px; gap: 32px; }
+  .lp-reasons__txt { font-size: 36px; letter-spacing: 0.05em; }
+  .lp-reasons__big { font-size: 64px; }
   .lp-reason {
-    padding: 28px 36px;
-    gap: 22px;
+    padding: 28px 32px 28px 36px;
+    gap: 20px;
+    max-width: 880px;
   }
-  .lp-reason__num { font-size: 52px; }
+  .lp-reason__num { font-size: 52px; letter-spacing: -0.02em; }
   .lp-reason__body h3 {
-    font-size: 22px;
-    margin-bottom: 6px;
+    font-size: 24px;
+    letter-spacing: 0.05em;
   }
   .lp-reason__body p {
     font-size: 16px;
+    letter-spacing: 0.03em;
     line-height: 1.9;
   }
-  .lp-reason + .lp-reason { margin-top: 36px; }
+  /* Connector aligned with Roboto Black "01" center (PC: padding-left 36 + 52px num / 2 ≈ x=65) */
   .lp-reason + .lp-reason::before {
-    top: -36px; height: 36px;
-    left: 66px;
+    left: 65px;
   }
 
   /* ----- 04 MERITS ----- */
@@ -2395,17 +2458,17 @@ input, select, textarea { font: inherit; color: inherit; }
     </div>
   </section>
 
-  <!-- ============ 03 REASONS ============ -->
-  <section class="lp-section lp-reasons" id="reasons">
-    <header class="lp-section__head">
-      <p class="lp-eyebrow"><span>Reasons</span></p>
-      <h2 class="lp-section__title lp-reasons__title">
-        選ばれる<span class="lp-reasons__big">5</span>つの理由
+  <!-- ============ 03 REASONS — Figma実値 (1406:3302) ============ -->
+  <section class="lp-reasons" id="reasons">
+    <header class="lp-reasons__head">
+      <p class="lp-eyebrow lp-eyebrow--noline lp-eyebrow--tight"><span>Reasons</span></p>
+      <h2 class="lp-reasons__title">
+        <span class="lp-reasons__txt">選ばれる</span><span class="lp-reasons__big">5</span><span class="lp-reasons__txt">つの理由</span>
       </h2>
     </header>
 
     <ol class="lp-reasons__list">
-      <li class="lp-reason" data-color="blue">
+      <li class="lp-reason" data-num="01">
         <span class="lp-reason__num">01</span>
         <span class="lp-reason__sep" aria-hidden="true"></span>
         <div class="lp-reason__body">
@@ -2413,7 +2476,7 @@ input, select, textarea { font: inherit; color: inherit; }
           <p>1戸あたり約2時間で完了。生活への影響は最小限に抑えます。</p>
         </div>
       </li>
-      <li class="lp-reason" data-color="yellow">
+      <li class="lp-reason" data-num="02">
         <span class="lp-reason__num">02</span>
         <span class="lp-reason__sep" aria-hidden="true"></span>
         <div class="lp-reason__body">
@@ -2421,7 +2484,7 @@ input, select, textarea { font: inherit; color: inherit; }
           <p>既存の枠を活かす「カバー工法」だから、工事費を大幅にカット。</p>
         </div>
       </li>
-      <li class="lp-reason" data-color="green">
+      <li class="lp-reason" data-num="03">
         <span class="lp-reason__num">03</span>
         <span class="lp-reason__sep" aria-hidden="true"></span>
         <div class="lp-reason__body">
@@ -2429,7 +2492,7 @@ input, select, textarea { font: inherit; color: inherit; }
           <p>玄関が変われば、マンション全体が若返る。売却・賃貸にも有利です。</p>
         </div>
       </li>
-      <li class="lp-reason" data-color="navy">
+      <li class="lp-reason" data-num="04">
         <span class="lp-reason__num">04</span>
         <span class="lp-reason__sep" aria-hidden="true"></span>
         <div class="lp-reason__body">
@@ -2437,7 +2500,7 @@ input, select, textarea { font: inherit; color: inherit; }
           <p>YKK AP製を採用。断熱・防犯・耐震性能が格段にアップします。</p>
         </div>
       </li>
-      <li class="lp-reason" data-color="blue">
+      <li class="lp-reason" data-num="05">
         <span class="lp-reason__num">05</span>
         <span class="lp-reason__sep" aria-hidden="true"></span>
         <div class="lp-reason__body">
