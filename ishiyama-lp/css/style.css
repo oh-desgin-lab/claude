@@ -1225,161 +1225,201 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   06 CASES
-   ========================================================= */
-.lp-cases { background: var(--lp-c-bg-sub); }
-.lp-cases__list {
-  margin-top: 24px;
+   06 CASES — Figma実値 (1406:3413)
+   ─────────────────────────────────────────────
+   - section bg #d5eef5 / padding 90px 112px / gap 40
+   - 2-col grid (PC): 596w each / gap 24
+   - card: bg #fff / radius 16 / shadow 0 4px 12px rgba(0,0,0,0.1)
+   - image 596x320 / bg #eff2f6 with Before/After pills + center divider
+   - body padding 28 / gap 14:
+     - meta tags (loc/units)
+     - title 22px Bold tracking 1.1
+     - desc 16px Medium line-height 2 #6b6b6b
+     - price row: '1戸あたり' badge + 205,000円〜（税込）
+   ────────────────────────────────────── */
+.lp-cases {
+  background: #d5eef5;
+  padding: 56px 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.lp-cases__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
 }
+.lp-cases__title {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
+}
+.lp-cases__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 1216px;
+}
+
+/* Card */
 .lp-case {
-  background: var(--lp-c-white);
-  border-radius: var(--lp-radius-l);
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(16, 47, 94, 0.06);
-}
-.lp-case__image {
-  position: relative;
-  aspect-ratio: 335 / 180;
-  background: linear-gradient(135deg, #9BC1D8 0%, #5A8AAB 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.lp-case__image img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-/* Hide broken images placeholder */
-.lp-case__image img[src*="case-"] { opacity: 0; }
-.lp-case__image::after {
-  content: "🏢";
-  position: absolute;
-  font-size: 48px;
-  z-index: 0;
-}
-.lp-case__badge {
-  position: absolute;
-  top: 16px; left: 16px;
-  background: var(--lp-c-saxblue);
-  color: var(--lp-c-white);
-  padding: 6px 12px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  z-index: 1;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-.lp-case__badge em {
-  font-family: var(--lp-ff-en);
-  font-size: 11px;
-  font-weight: 900;
-  font-style: normal;
-  letter-spacing: 0.1em;
-}
-.lp-case__badge span {
-  font-family: var(--lp-ff-num);
-  font-size: 12px;
-  font-weight: 900;
-}
-.lp-case__body {
-  padding: 18px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+}
+
+/* Image area with Before/After tabs */
+.lp-case__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 596 / 320;
+  background: #eff2f6;
+  /* TODO: 画像差替えエリア (Figma: img 596x320) */
+}
+/* Before/After tabs */
+.lp-case__btag {
+  position: absolute;
+  top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: "Roboto", var(--lp-ff-num);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+.lp-case__btag--before {
+  left: 20px;
+  background: #1aaee5;
+  min-width: 100px;
+}
+.lp-case__btag--after {
+  right: 20px;
+  background: #ffa12d;
+  min-width: 80px;
+}
+/* Center divider (vertical line between before/after) */
+.lp-case__divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  border-left: 3px solid #fff;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.08);
+}
+
+/* Body */
+.lp-case__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .lp-case__meta {
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
-.lp-tag {
-  background: var(--lp-c-bg-sub);
-  color: var(--lp-c-text-sub);
-  font-size: 10px;
+.lp-case__tag {
+  background: #f0f8fc;
+  color: #6b6b6b;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-size: 11px;
   letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
-.lp-tag--loc {
-  background: var(--lp-c-bg-blue);
-  color: var(--lp-c-navy);
+.lp-case__tag--loc {
+  background: #e6f4fc;
+  color: #16458c;
 }
 .lp-case__title {
-  font-size: 16px;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.03em;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
 }
 .lp-case__desc {
-  font-size: 12px;
+  font-family: var(--lp-ff-jp);
   font-weight: 500;
-  color: var(--lp-c-text-sub);
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 2;
   letter-spacing: 0.03em;
+  color: #6b6b6b;
+  margin: 0;
 }
-.lp-priceblock {
-  background: var(--lp-c-orange-bg);
-  border: 1.5px dashed rgba(238, 90, 46, 0.4);
-  border-radius: 10px;
-  padding: 12px 14px;
-  margin-top: 4px;
+
+/* Price row */
+.lp-case__price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  margin: 0;
+  flex-wrap: wrap;
 }
-.lp-priceblock__top {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 4px;
-}
-.lp-priceblock__badge {
-  background: var(--lp-c-orange);
-  color: var(--lp-c-white);
-  font-size: 10px;
+.lp-case__pbadge {
+  display: inline-flex;
+  align-items: center;
+  background: #ee5a2e;
+  color: #fff;
+  font-family: var(--lp-ff-jp);
   font-weight: 900;
-  padding: 2px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
-}
-.lp-priceblock__label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--lp-c-text-sub);
-}
-.lp-priceblock__row {
-  display: flex; align-items: baseline;
-  gap: 4px;
-}
-.lp-priceblock__num {
-  font-family: var(--lp-ff-num);
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--lp-c-orange);
-  letter-spacing: -0.02em;
-}
-.lp-priceblock__yen {
-  font-size: 16px;
-  font-weight: 900;
-  color: var(--lp-c-orange);
-}
-.lp-priceblock__tilde {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--lp-c-orange);
-}
-.lp-priceblock__tax {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--lp-c-text-sub);
-}
-.lp-priceblock__note {
-  margin-top: 4px;
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--lp-c-text-muted);
-}
-.lp-case__link {
   font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+  align-self: center;
+}
+.lp-case__pnum {
+  font-family: "Roboto", var(--lp-ff-num);
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 0;
+  color: #ee5a2e;
+  line-height: 1;
+}
+.lp-case__pyen {
+  font-family: var(--lp-ff-jp);
+  font-weight: 900;
+  font-size: 16px;
+  color: #ee5a2e;
+  line-height: 1;
+}
+.lp-case__ptilde {
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
-  color: var(--lp-c-saxblue);
-  margin-top: 4px;
+  font-size: 18px;
+  color: #ee5a2e;
+  line-height: 1;
+}
+.lp-case__ptax {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
+  line-height: 1;
+  margin-left: 2px;
 }
 
 /* =========================================================
@@ -2311,23 +2351,27 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-rijikai__doc::before { width: 80px; }
   .lp-rijikai__doc::after { width: 120px; }
 
-  /* ----- 06 CASES ----- */
+  /* ----- 06 CASES — Figma実値 (PC 1440) ----- */
+  .lp-cases { padding: 90px 112px; gap: 40px; }
+  .lp-cases__title { font-size: 36px; letter-spacing: 0.05em; }
   .lp-cases__list {
     grid-template-columns: 1fr 1fr;
-    display: grid;
     gap: 24px;
-    max-width: 1216px;
-    margin: 40px auto 0;
   }
-  .lp-case__image { aspect-ratio: 596 / 320; }
-  .lp-case__image::after { font-size: 88px; }
-  .lp-case__body { padding: 28px; gap: 12px; }
-  .lp-case__title { font-size: 22px; }
-  .lp-case__desc { font-size: 14px; }
-  .lp-priceblock__num { font-size: 38px; }
-  .lp-priceblock__yen { font-size: 20px; }
-  .lp-priceblock__tilde { font-size: 22px; }
-  .lp-priceblock__tax { font-size: 12px; }
+  .lp-case__btag {
+    font-size: 26px;
+    letter-spacing: 0.03em;
+  }
+  .lp-case__btag--before { min-width: 124px; }
+  .lp-case__btag--after { min-width: 106px; }
+  .lp-case__body { padding: 28px; gap: 14px; }
+  .lp-case__title { font-size: 22px; letter-spacing: 0.05em; }
+  .lp-case__desc { font-size: 16px; letter-spacing: 0.03em; }
+  .lp-case__pbadge { font-size: 14px; letter-spacing: 0.04em; }
+  .lp-case__pnum { font-size: 38px; }
+  .lp-case__pyen { font-size: 20px; }
+  .lp-case__ptilde { font-size: 20px; }
+  .lp-case__ptax { font-size: 16px; }
 
   /* ----- 07 HEALTH CHECK ----- */
   .lp-health__title { font-size: 36px; gap: 10px; }
