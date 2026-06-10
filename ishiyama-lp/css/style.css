@@ -582,148 +582,209 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 
 /* =========================================================
-   02 COVER METHOD
-   ========================================================= */
-.lp-method { background: var(--lp-c-bg-sub); position: relative; }
-.lp-method::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
+   02 COVER METHOD — Figma実値 (1406:3275)
+   ─────────────────────────────────────────────
+   - section bg: linear-gradient(180deg, #d2eaf7, #fff)
+   - top wave divider: 1440x70 画像差替え
+   - inner 1000w / gap 40px
+   - eyebrow Method: ★ 下線なし (only text)
+   - heading 36px Bold tracking 1.8 / 「『カバー工法』」 #1aaee5 INLINE
+   - diagram: 480h / bg #eff2f6 / radius 20
+   - card: white / shadow 0 4px 14px rgba(26,69,140,0.06) / horizontal
+   - Youtube: 24px Bold heading + orange underline 32x3
+   ────────────────────────────────────── */
+.lp-method {
+  background: linear-gradient(180deg, #d2eaf7 0%, #fff 100%);
+  padding-bottom: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 上部 wave divider 画像差替えエリア */
+.lp-method__wave {
+  width: 100%;
   height: 42px;
-  background: var(--lp-c-white);
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* TODO: Figmaから書き出した wave.svg を background-image で指定 */
 }
-.lp-method__badge {
-  display: inline-block;
-  margin-top: 14px;
-  background: var(--lp-c-orange);
-  color: var(--lp-c-white);
-  font-size: 18px;
-  font-weight: 900;
-  padding: 8px 20px;
-  border-radius: 999px;
+.lp-method__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+  margin-top: 32px;
+}
+.lp-method__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+/* Eyebrow with NO underline rect (variant) */
+.lp-eyebrow--noline::after { display: none; }
+
+.lp-method__title {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 24px;
   letter-spacing: 0.05em;
-  box-shadow: var(--lp-shadow-orange);
+  line-height: 1.6;
+  color: #2a2a2a;
+  text-align: center;
+  margin: 0;
 }
-.lp-method__visual { margin-top: 24px; }
+/* インライン 『カバー工法』 = #1aaee5 */
+.lp-method__hl { color: #1aaee5; }
+
+/* ── 図解 ────────────────────────────────────── */
 .lp-method__diagram {
-  background: var(--lp-c-bg-blue);
-  border-radius: var(--lp-radius-l);
-  aspect-ratio: 303 / 390;
+  background: #eff2f6;
+  border-radius: 20px;
+  width: 100%;
+  height: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  gap: 10px;
+  gap: 16px;
+  margin: 0;
 }
-.lp-method__diagram-icon { font-size: 64px; }
-.lp-method__diagram figcaption {
-  display: flex; flex-direction: column; gap: 4px;
-  font-size: 12px;
-  color: var(--lp-c-text-sub);
-  font-weight: 500;
-  line-height: 1.6;
+.lp-method__diagram-icon {
+  width: 61px;
+  height: 61px;
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.lp-method__diagram figcaption strong {
-  font-size: 14px;
-  color: var(--lp-c-text);
-  font-weight: 700;
-}
-.lp-method__detail {
-  margin-top: 20px;
-  background: var(--lp-c-white);
-  border-radius: var(--lp-radius);
-  padding: 20px 18px;
-  border: 1px solid var(--lp-c-border);
-}
-.lp-method__heading {
-  font-size: 15px;
-  font-weight: 700;
+.lp-method__diagram-cap {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
+  text-align: center;
+  font-family: "DM Sans", var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 14px;
   letter-spacing: 0.03em;
-}
-.lp-method__check {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  background: var(--lp-c-saxblue);
-  color: var(--lp-c-white);
-  font-size: 12px; font-weight: 700;
-  display: inline-flex;
-  align-items: center; justify-content: center;
-}
-.lp-method__detail p {
-  font-size: 13px;
-  font-weight: 500;
+  color: #333;
   line-height: 2;
-  color: var(--lp-c-text-sub);
-  letter-spacing: 0.03em;
 }
 
-.lp-method__youtube { margin-top: 32px; text-align: center; }
-.lp-yt-heading {
-  font-size: 17px;
+/* ── 解説カード ─────────────────────────── */
+.lp-method__card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 14px 0 rgba(26, 69, 140, 0.06);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.lp-method__check-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lp-method__check {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background: #1aaee5;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--lp-ff-jp);
   font-weight: 700;
+  font-size: 16px;
+}
+.lp-method__heading {
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 18px;
   letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
+}
+.lp-method__body {
+  font-family: var(--lp-ff-jp);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* ── Youtube section ─────────────────────── */
+.lp-method__youtube {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+.lp-yt-heading {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  font-family: var(--lp-ff-jp);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  color: #2a2a2a;
+  margin: 0;
   padding-bottom: 8px;
-  position: relative;
 }
+/* オレンジ下線 32x3 */
 .lp-yt-heading::after {
   content: "";
   position: absolute;
-  left: 50%; bottom: 0;
+  left: 50%;
+  bottom: 0;
   transform: translateX(-50%);
-  width: 32px; height: 3px;
+  width: 32px;
+  height: 3px;
+  background: #ee5a2e;
   border-radius: 2px;
-  background: var(--lp-c-orange);
 }
 .lp-yt-heading__icon {
   display: inline-flex;
-  align-items: center; justify-content: center;
-  width: 32px; height: 24px;
-  background: #FF0000;
-  color: var(--lp-c-white);
-  font-size: 10px;
-  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 30px;
+  background: red;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
 }
 .lp-yt-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 16px;
+  width: 100%;
 }
 .lp-yt-thumb {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--lp-c-bg-blue);
-  border-radius: var(--lp-radius);
-  aspect-ratio: 335 / 189;
-  gap: 8px;
-  box-shadow: var(--lp-shadow);
-}
-.lp-yt-thumb__play {
-  width: 56px; height: 56px;
-  background: #FF0000;
-  color: var(--lp-c-white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center; justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-.lp-yt-thumb__label {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--lp-c-text-sub);
+  display: block;
+  width: 100%;
+  aspect-ratio: 488 / 276;
+  background: #cfe3ef;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  /* TODO: Youtubeサムネ画像差替え */
 }
 
 /* =========================================================
@@ -1886,48 +1947,55 @@ input, select, textarea { font: inherit; color: inherit; }
   .lp-empathy__bullets li { font-size: 14px; }
   .lp-empathy__sub { font-size: 14px; }
 
-  /* ----- 02 COVER METHOD ----- */
-  .lp-method { padding-top: 156px; }
-  .lp-method::before { height: 70px; }
-  .lp-method__badge { font-size: 28px; padding: 10px 28px; margin-top: 18px; }
-  .lp-method__visual {
-    max-width: 1000px;
-    margin: 32px auto 0;
+  /* ----- 02 COVER METHOD — Figma実値 (PC 1440) ----- */
+  .lp-method {
+    gap: 108px;
+    padding-bottom: 90px;
+  }
+  .lp-method__wave {
+    height: 70px;
+    width: 1440px;
+    max-width: 100%;
+  }
+  .lp-method__inner {
+    margin-top: 108px;
+    gap: 40px;
+    padding: 0;
+  }
+  .lp-method__title {
+    font-size: 36px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
   }
   .lp-method__diagram {
-    aspect-ratio: 1000 / 480;
-    border-radius: 24px;
+    height: 480px;
+    border-radius: 20px;
   }
-  .lp-method__diagram-icon { font-size: 96px; }
-  .lp-method__diagram figcaption { font-size: 14px; }
-  .lp-method__diagram figcaption strong { font-size: 18px; }
-
-  .lp-method__detail {
-    max-width: 1000px;
-    margin: 32px auto 0;
+  .lp-method__diagram-cap {
+    font-size: 16px;
+    letter-spacing: 0.03em;
+  }
+  .lp-method__card {
     padding: 32px 40px;
-    display: grid;
-    grid-template-columns: 299px 1fr;
-    gap: 32px;
+    flex-direction: row;
     align-items: center;
+    gap: 32px;
+    border-radius: 16px;
   }
-  .lp-method__heading { font-size: 22px; margin-bottom: 0; }
-  .lp-method__check { width: 36px; height: 36px; font-size: 18px; }
-  .lp-method__detail p { font-size: 15px; }
-
-  .lp-method__youtube {
-    max-width: 1000px;
-    margin: 56px auto 0;
-  }
+  .lp-method__check-row { flex-shrink: 0; gap: 12px; }
+  .lp-method__check { width: 36px; height: 36px; font-size: 20px; border-radius: 18px; }
+  .lp-method__heading { font-size: 24px; letter-spacing: 0.05em; }
+  .lp-method__body { font-size: 16px; letter-spacing: 0.03em; flex: 1; min-width: 0; }
   .lp-yt-heading { font-size: 24px; gap: 10px; }
-  .lp-yt-heading__icon { width: 40px; height: 30px; font-size: 13px; }
+  .lp-yt-heading::after {
+    left: auto; right: 0;
+    transform: none;
+    bottom: -8px;
+  }
   .lp-yt-grid {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-top: 28px;
   }
-  .lp-yt-thumb { aspect-ratio: 488 / 276; border-radius: 20px; }
-  .lp-yt-thumb__play { width: 80px; height: 80px; font-size: 28px; }
 
   /* ----- 03 REASONS ----- */
   .lp-reasons__title { font-size: 36px; }
